@@ -7,19 +7,42 @@
 	<select id="getAllEmployees" resultType="com.example.demo.dto.Employees">
 		SELECT *
 		FROM employees
-		WHERE emp_no like '100%'
+		WHERE emp_no = 1
 	</select>
-	
+
+
 	<select id="getEmployeeById" resultType="com.example.demo.dto.Employees">
 		SELECT *
 		FROM employees
 		WHERE emp_no = #{id}
 	</select>
-	
+
+
 	<select id="getEmployee" resultType="com.example.demo.dto.Employees">
 		SELECT *
 		FROM employees
-		WHERE emp_no = #{emp_no} AND first_name = #{first_name}
+		<where>
+			<if test = "emp_no != null" >
+				AND emp_no = #{emp_no}
+			</if>
+			<if test = "first_name != null" >
+				AND first_name = #{first_name}
+			</if>
+		</where>
 	</select>
+	
+	
+	<update id = "updateFirstName" parameterType = "com.example.demo.dto.Employees">
+		UPDATE employees
+		<set>
+			<if test = "first_name != null">
+				first_name = #{first_name},
+			</if>
+			<if test = "last_name != null">
+				last_name = #{last_name},
+			</if>
+		</set>
+		WHERE emp_no = #{emp_no}
+	</update>
 	
 </mapper>

@@ -25,14 +25,20 @@ public class EmployeesService
 	
 	public Employees getEmployeeById(String id)
 	{	
-		//TODO : 비즈니스 로직
-		return EmployeesDAO.getEmployeeById(id);
+		// TODO : 비즈니스 로직
+		Employees employees = EmployeesDAO.getEmployeeById(id);
+		return employees;
 	}
 	
 	public Employees getEmployee(String emp_no, String first_name)
 	{	
-		//TODO : 비즈니스 로직
+		// TODO : 비즈니스 로직
 		return EmployeesDAO.getEmployee(emp_no, first_name);
 	}
-	
+
+	public int updateFirstName(Employees employees)
+	{
+		// TODO : 비즈니스 로직
+		return EmployeesDAO.updateFirstName(employees);
+	}
 }

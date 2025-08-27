@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,12 +29,18 @@ public class LoginController {
 	}
 
 	@PostMapping("login")
-	@ResponseBody
-	public String login2(@RequestParam("id") String id, @RequestParam("password") String password)
+	public String login2
+	(
+		@RequestParam("id") String id
+		, @RequestParam("password") String password
+		,Model model
+	)
 	{
 		System.out.println("id : " + id);
 		System.out.println("password : " + password);
-		return "어서오세요 " + id + "님!";
+		
+		model.addAttribute("name", id);
+		return "welcome";
 	}
 	
 	
