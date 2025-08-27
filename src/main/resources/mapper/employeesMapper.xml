@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "../dtd/mybatis-3-mapper.dtd">
+
+<!-- 이 xml 파일은 namespace에 지정한 mapper인터페에스와 연동! -->
+<mapper namespace="com.example.demo.dao.EmployeesDAO">
+
+	<select id="getAllEmployees" resultType="com.example.demo.dto.Employees">
+		SELECT *
+		FROM employees
+		WHERE emp_no like '100%'
+	</select>
+	
+	<select id="getEmployeeById" resultType="com.example.demo.dto.Employees">
+		SELECT *
+		FROM employees
+		WHERE emp_no = #{id}
+	</select>
+	
+	<select id="getEmployee" resultType="com.example.demo.dto.Employees">
+		SELECT *
+		FROM employees
+		WHERE emp_no = #{emp_no} AND first_name = #{first_name}
+	</select>
+	
+</mapper>
