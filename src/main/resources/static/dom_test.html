@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	
+	<body>
+		<h1>DOM</h1>
+		<hr>
+		<p> </p>
+		
+		<script>
+			console.log(document.nodeName);
+			console.log(document.childNodes[0].nodeName);
+			console.log(document.childNodes[1].nodeName);
+			
+			let test = document.childNodes[1].childNodes;
+			let input_list = '';
+			
+			for ( i = 0; i < test.length; i++)
+			{
+				input_list += test[i].nodeName + '<br>';
+			}
+			
+			document.getElementsByTagName('p')[0].innerHTML = input_list;
+			
+		</script>
+	</body>
+	
+	
+	
+</html>

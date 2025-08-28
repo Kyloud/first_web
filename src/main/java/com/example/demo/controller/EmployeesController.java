@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -64,4 +65,15 @@ public class EmployeesController
 		else if (result == 1)	return "성공";
 		else					return "대형사고";
 	}
+	
+	@GetMapping("thymeleaf")
+	public String thymeleafExe (@RequestParam("emp_no") String emp_no, Model model)
+	{
+		Employees employee = employeesService.getEmployeeById(emp_no);
+
+		model.addAttribute("employee", employee);
+		
+		return "welcome";
+	}
+	
 }

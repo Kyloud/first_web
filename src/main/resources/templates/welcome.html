@@ -7,9 +7,22 @@
 	
 	<body>
 		
-		<h1 th:text="|Welcome ${name}|">여기에 표시</h1>
-		<h1></h1>
+		<h1 th:utext="|Welcome ${name}|">여기에 표시</h1>
+		<h1 th:text="|Welcome ${nickname}|">여기에 표시</h1>
 		
+		<!-- 타임리프가 객체를 사용하는 첫번쨰 방법 -->
+		<!-- <span th:text="${employee.emp_no}"></span>
+		<hr> -->
+		
+		<!-- 타임리프가 객체를 사용하는 두번쨰 방법 -->
+		<th:block th:object = "${employee}">
+			emp_no : <span th:text="*{emp_no}"></span><br>
+			birth_date : <span th:text="*{birth_date}"></span><br>
+			first_name : <span th:text="*{first_name}"></span><br>
+			last_name : <span th:text="*{last_name}"></span><br>
+			gender : <span th:text="*{gender}"></span><br>
+			hire_date : <span th:text="*{hire_date}"></span><br>
+		</th:block>			
 	</body>
 
 
