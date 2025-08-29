@@ -14,6 +14,7 @@
 		<!-- <span th:text="${employee.emp_no}"></span>
 		<hr> -->
 		
+		
 		<!-- 타임리프가 객체를 사용하는 두번쨰 방법 -->
 		<th:block th:object = "${employee}">
 			emp_no : <span th:text="*{emp_no}"></span><br>
@@ -23,8 +24,10 @@
 			gender : <span th:text="*{gender}"></span><br>
 			hire_date : <span th:text="*{hire_date}"></span><br>
 		</th:block>			
-	</body>
 
+
+
+	</body>
 
 
 </html>

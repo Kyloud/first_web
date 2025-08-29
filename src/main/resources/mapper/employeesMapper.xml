@@ -7,7 +7,7 @@
 	<select id="getAllEmployees" resultType="com.example.demo.dto.Employees">
 		SELECT *
 		FROM employees
-		WHERE emp_no = 1
+		limit 50;
 	</select>
 
 

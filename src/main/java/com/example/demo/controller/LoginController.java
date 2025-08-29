@@ -26,18 +26,45 @@ public class LoginController {
 			, Model model 
 	)
 	{
+		 User user = LoginService.getUser(login_user.getLogin_id(), login_user.getLogin_password());
+		 
+		 model.addAttribute("user", user);
+		
+		 return "dashboard";
+		 
+		/*
 		System.out.println("입력한 ID : " + login_user.getLogin_id());
 		System.out.println("입력한 PASSWORD : " + login_user.getLogin_password());
 		 
 		User user = LoginService.getUser(login_user.getLogin_id(), login_user.getLogin_password());
 		
 		if (user != null)
-		{
+		{			
+			model.addAttribute("result", 0);
 			model.addAttribute("user", user);
 			return "dashboard";
 		}
 		else
 			return "redirect:/login.html";
+		*/
+		 
+		 
+		 
 	}
 	
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
 }

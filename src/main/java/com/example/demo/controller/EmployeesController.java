@@ -22,12 +22,14 @@ public class EmployeesController
 		this.employeesService = employeesService;
 	}
 	
-	@GetMapping("/employees")
-	@ResponseBody
-	public List<Employees> getAllEmployees()
+	@GetMapping("employees")
+	public String getAllEmployees(Model model)
 	{
 		List<Employees> employees = employeesService.getAllEmployees();
-		return employees;
+		
+		model.addAttribute("employees", employees);
+		
+		return "employees";
 	}
 	
 	@GetMapping("/employeeById")
