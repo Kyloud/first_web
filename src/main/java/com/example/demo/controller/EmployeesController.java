@@ -32,7 +32,7 @@ public class EmployeesController
 		return "employees";
 	}
 	
-	@GetMapping("/employeeById")
+	@GetMapping("employeeById")
 	@ResponseBody
 	public Employees getEmployeeById(@RequestParam("id") String id)
 	{

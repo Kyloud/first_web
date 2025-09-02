@@ -1,0 +1,23 @@
+package com.example.demo.exception;
+
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
+
+//try-catch사용하지 않아도 예외처리가 가능
+//Component 포함되어 있기 때문에 자바에서 bean으로 관리
+@ControllerAdvice
+public class GlobalExceptionHandler {
+
+  @ExceptionHandler(NoResourceFoundException.class)
+  public String handleResourceFoundException() {
+      System.out.println("오류발생");
+      //오류 내용에 따른 적절한 처리 실행.
+      return "404";
+  }
+
+  @ExceptionHandler(Exception.class)
+  public String handleException() {
+      return "500";
+  }
+}

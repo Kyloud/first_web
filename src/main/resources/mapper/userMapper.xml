@@ -8,7 +8,7 @@
 		SELECT *
 		FROM user
 		<where>
-				AND login_id = #{login_id}
+				login_id = #{login_id}
 				AND login_password = #{login_password}
 		</where>
 	</select>
