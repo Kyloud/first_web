@@ -15,10 +15,10 @@ public class LoginService
 		this.UserDAO = UsersDAO;
 	}
 
-	public User getUser(String login_id, String login_password)
+	public User login(String login_id, String login_password)
 	{
 		// TODO : 비즈니스 로직.
-		return UserDAO.getUser(login_id, login_password);
+		return UserDAO.login(login_id, login_password);
 	}
 	
 	
