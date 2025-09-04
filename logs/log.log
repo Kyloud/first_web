@@ -1,0 +1,315 @@
+15:40:19.805 [restartedMain] INFO  c.example.demo.FirstWebApplication - Starting FirstWebApplication using Java 21.0.7 with PID 37336 (G:\Java\workspace\first_web\bin\main started by ASUS in G:\Java\workspace\first_web)
+15:40:19.806 [restartedMain] INFO  c.example.demo.FirstWebApplication - No active profile set, falling back to 1 default profile: "default"
+15:40:19.918 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+15:40:19.919 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+15:40:20.466 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+15:40:20.478 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+15:40:20.480 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+15:40:20.480 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.44]
+15:40:20.505 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:40:20.505 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 586 ms
+15:40:20.713 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+15:40:20.936 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+15:40:20.946 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+15:40:20.958 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+15:40:20.962 [restartedMain] INFO  c.example.demo.FirstWebApplication - Started FirstWebApplication in 1.401 seconds (process running for 1.726)
+15:40:25.524 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:40:25.525 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+15:40:25.525 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+15:40:31.564 [http-nio-8080-exec-5] INFO  c.e.demo.controller.LoginController - 사용자가 로그인을 시도했습니다!
+15:40:31.564 [http-nio-8080-exec-5] INFO  c.e.demo.controller.LoginController - 로그인을 요청한 세션 ID : ED5E51E32400C2EF1C8653EF7B2E1E0B
+15:40:31.564 [http-nio-8080-exec-5] INFO  c.e.demo.controller.LoginController - 입력한 ID : ktech
+15:40:31.564 [http-nio-8080-exec-5] INFO  c.e.demo.controller.LoginController - 입력한 PASSWORD : ktech!@#
+15:40:31.578 [http-nio-8080-exec-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+15:40:31.651 [http-nio-8080-exec-5] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.mariadb.jdbc.Connection@5fc27bff
+15:40:31.652 [http-nio-8080-exec-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+15:40:31.692 [http-nio-8080-exec-5] ERROR c.e.demo.controller.LoginController - 사용자가 로그인에 실패했습니다
+15:40:37.484 [http-nio-8080-exec-9] INFO  c.e.demo.controller.LoginController - 사용자가 로그인을 시도했습니다!
+15:40:37.484 [http-nio-8080-exec-9] INFO  c.e.demo.controller.LoginController - 로그인을 요청한 세션 ID : ED5E51E32400C2EF1C8653EF7B2E1E0B
+15:40:37.484 [http-nio-8080-exec-9] INFO  c.e.demo.controller.LoginController - 입력한 ID : ktech
+15:40:37.484 [http-nio-8080-exec-9] INFO  c.e.demo.controller.LoginController - 입력한 PASSWORD : ktech!@#$
+15:40:37.492 [http-nio-8080-exec-9] INFO c.e.demo.controller.LoginController - 사용자가 로그인에 성공했습니다!
+15:40:45.610 [http-nio-8080-exec-10] INFO  c.e.d.controller.EmployeesController - 사용자가 /employeesById 페이지를 요청함
+15:40:52.295 [http-nio-8080-exec-1] INFO  c.e.d.controller.EmployeesController - 사용자가 /employeesById 페이지를 요청함
+15:40:56.705 [http-nio-8080-exec-3] INFO  c.e.d.controller.EmployeesController - 사용자가 /employeesById 페이지를 요청함
+15:40:56.707 [http-nio-8080-exec-3] WARN  c.e.d.controller.EmployeesController - 사용자가 사원 번호로 [1000002] 를 검색했지만 어떠한 결과도 찾을 수 없었습니다.
+15:41:02.499 [http-nio-8080-exec-2] INFO  c.e.d.controller.EmployeesController - 사용자가 /employeesById 페이지를 요청함
+15:41:02.502 [http-nio-8080-exec-2] WARN  c.e.d.controller.EmployeesController - 사용자가 사원 번호로 [1022] 를 검색했지만 어떠한 결과도 찾을 수 없었습니다.
+15:41:15.910 [http-nio-8080-exec-5] INFO  c.e.d.controller.EmployeesController - 사용자가 /employees 페이지를 요청함
+15:41:22.432 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 사용자가 로그아웃을 요청했습니다, 삭제된 세션 ID : [ED5E51E32400C2EF1C8653EF7B2E1E0B]
+15:41:25.257 [RMI TCP Connection(9)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+15:41:25.258 [RMI TCP Connection(9)-127.0.0.1] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+15:41:25.258 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+15:41:25.261 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+15:41:25.261 [RMI TCP Connection(9)-127.0.0.1] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+15:41:25.264 [RMI TCP Connection(9)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+15:41:25.275 [RMI TCP Connection(9)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+15:49:33.181 [restartedMain] INFO  c.example.demo.FirstWebApplication - Starting FirstWebApplication using Java 21.0.7 with PID 2968 (G:\Java\workspace\first_web\bin\main started by ASUS in G:\Java\workspace\first_web)
+15:49:33.182 [restartedMain] INFO  c.example.demo.FirstWebApplication - No active profile set, falling back to 1 default profile: "default"
+15:49:33.293 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+15:49:33.293 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+15:49:33.828 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+15:49:33.835 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+15:49:33.836 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+15:49:33.836 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.44]
+15:49:33.859 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:49:33.859 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 566 ms
+15:49:34.058 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+15:49:34.264 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+15:49:34.276 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+15:49:34.287 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+15:49:34.292 [restartedMain] INFO  c.example.demo.FirstWebApplication - Started FirstWebApplication in 1.321 seconds (process running for 1.633)
+15:49:42.737 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:49:42.737 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+15:49:42.737 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+15:49:42.769 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 사용자가 로그인을 시도했습니다!
+15:49:42.770 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 로그인을 요청한 세션 ID : ED5E51E32400C2EF1C8653EF7B2E1E0B
+15:49:42.770 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 입력한 ID : ktech
+15:49:42.770 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 입력한 PASSWORD : ktech!@#$
+15:49:42.781 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+15:49:42.855 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.mariadb.jdbc.Connection@1fe290a7
+15:49:42.857 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+15:49:42.900 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 사용자가 로그인에 성공했습니다!
+15:50:06.006 [http-nio-8080-exec-2] INFO  c.e.d.controller.EmployeesController - 사용자가 /employeesById 페이지를 요청함
+15:50:10.466 [http-nio-8080-exec-3] INFO  c.e.d.controller.EmployeesController - 사용자가 /employeesById 페이지를 요청함
+15:52:23.970 [RMI TCP Connection(12)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+15:52:23.971 [RMI TCP Connection(12)-127.0.0.1] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+15:52:23.972 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+15:52:23.974 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+15:52:23.975 [RMI TCP Connection(12)-127.0.0.1] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+15:52:23.977 [RMI TCP Connection(12)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+15:52:23.983 [RMI TCP Connection(12)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+16:01:32.323 [restartedMain] INFO  c.example.demo.FirstWebApplication - Starting FirstWebApplication using Java 21.0.7 with PID 20856 (G:\Java\workspace\first_web\bin\main started by ASUS in G:\Java\workspace\first_web)
+16:01:32.328 [restartedMain] INFO  c.example.demo.FirstWebApplication - No active profile set, falling back to 1 default profile: "default"
+16:01:32.434 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+16:01:32.434 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+16:01:32.957 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+16:01:32.964 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+16:01:32.965 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:01:32.965 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.44]
+16:01:32.991 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:01:32.991 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 557 ms
+16:01:33.197 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+16:01:33.400 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+16:01:33.410 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+16:01:33.419 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+16:01:33.423 [restartedMain] INFO  c.example.demo.FirstWebApplication - Started FirstWebApplication in 1.314 seconds (process running for 1.633)
+16:01:47.325 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:01:47.325 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:01:47.326 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+16:01:50.888 [http-nio-8080-exec-4] INFO  c.e.demo.controller.LoginController - 사용자가 로그인을 시도했습니다!
+16:01:50.888 [http-nio-8080-exec-4] INFO  c.e.demo.controller.LoginController - 로그인을 요청한 세션 ID : [ED5E51E32400C2EF1C8653EF7B2E1E0B]
+16:01:50.888 [http-nio-8080-exec-4] INFO  c.e.demo.controller.LoginController - 입력한 ID : ktech
+16:01:50.888 [http-nio-8080-exec-4] INFO  c.e.demo.controller.LoginController - 입력한 PASSWORD : ktech!@#$
+16:01:50.897 [http-nio-8080-exec-4] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+16:01:50.944 [http-nio-8080-exec-4] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.mariadb.jdbc.Connection@b6b3fea
+16:01:50.945 [http-nio-8080-exec-4] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+16:01:50.973 [http-nio-8080-exec-4] INFO  c.e.demo.controller.LoginController - 사용자가 로그인에 성공했습니다!
+16:01:59.159 [http-nio-8080-exec-10] INFO  c.e.d.controller.EmployeesController - 사용자가 /employee 페이지를 요청함
+16:02:01.721 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.mybatis.spring.MyBatisSystemException: Expected one result (or null) to be returned by selectOne(), but found: 300024]
+16:03:36.943 [RMI TCP Connection(10)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+16:03:36.944 [RMI TCP Connection(10)-127.0.0.1] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+16:03:36.945 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+16:03:36.948 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+16:03:36.948 [RMI TCP Connection(10)-127.0.0.1] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+16:03:36.951 [RMI TCP Connection(10)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+16:03:36.963 [RMI TCP Connection(10)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+16:45:04.676 [restartedMain] INFO  c.example.demo.FirstWebApplication - Starting FirstWebApplication using Java 21.0.7 with PID 37700 (G:\Java\workspace\first_web\bin\main started by ASUS in G:\Java\workspace\first_web)
+16:45:04.681 [restartedMain] INFO  c.example.demo.FirstWebApplication - No active profile set, falling back to 1 default profile: "default"
+16:45:04.787 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+16:45:04.787 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+16:45:05.299 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+16:45:05.306 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+16:45:05.307 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:45:05.307 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.44]
+16:45:05.331 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:45:05.331 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 543 ms
+16:45:05.544 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+16:45:05.747 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+16:45:05.757 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+16:45:05.765 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+16:45:05.769 [restartedMain] INFO  c.example.demo.FirstWebApplication - Started FirstWebApplication in 1.312 seconds (process running for 1.654)
+16:45:10.859 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:45:10.859 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:45:10.859 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+16:45:16.317 [http-nio-8080-exec-5] INFO  c.e.demo.controller.LoginController - 사용자가 로그인을 시도했습니다!
+16:45:16.317 [http-nio-8080-exec-5] INFO  c.e.demo.controller.LoginController - 로그인을 요청한 세션 ID : [9528C65A99CB9E6F42E0C76BADEB6600]
+16:45:16.317 [http-nio-8080-exec-5] INFO  c.e.demo.controller.LoginController - 입력한 ID : ktech
+16:45:16.318 [http-nio-8080-exec-5] INFO  c.e.demo.controller.LoginController - 입력한 PASSWORD : ktech!@#$
+16:45:16.330 [http-nio-8080-exec-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+16:45:16.446 [http-nio-8080-exec-5] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.mariadb.jdbc.Connection@1e128b17
+16:45:16.447 [http-nio-8080-exec-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+16:45:16.490 [http-nio-8080-exec-5] INFO  c.e.demo.controller.LoginController - 사용자가 로그인에 성공했습니다!
+16:45:25.599 [http-nio-8080-exec-6] INFO  c.e.demo.controller.LoginController - 사용자가 로그아웃을 요청했습니다, 삭제된 세션 ID : [9528C65A99CB9E6F42E0C76BADEB6600]
+16:49:04.760 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 사용자가 로그인을 시도했습니다!
+16:49:04.760 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 로그인을 요청한 세션 ID : [9528C65A99CB9E6F42E0C76BADEB6600]
+16:49:04.760 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 입력한 ID : ktech
+16:49:04.760 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 입력한 PASSWORD : ktech!@#$
+16:49:04.763 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 사용자가 로그인에 성공했습니다!
+16:49:58.419 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+16:49:58.420 [Thread-5] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+16:49:58.421 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+16:49:58.423 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+16:49:58.424 [Thread-5] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+16:49:58.426 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+16:49:58.432 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+16:49:58.490 [restartedMain] INFO  c.example.demo.FirstWebApplication - Starting FirstWebApplication using Java 21.0.7 with PID 37700 (G:\Java\workspace\first_web\bin\main started by ASUS in G:\Java\workspace\first_web)
+16:49:58.490 [restartedMain] INFO  c.example.demo.FirstWebApplication - No active profile set, falling back to 1 default profile: "default"
+16:49:58.612 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+16:49:58.613 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+16:49:58.613 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:49:58.613 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.44]
+16:49:58.622 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:49:58.622 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 128 ms
+16:49:58.682 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+16:49:58.769 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+16:49:58.773 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+16:49:58.775 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+16:49:58.776 [restartedMain] INFO  c.example.demo.FirstWebApplication - Started FirstWebApplication in 0.299 seconds (process running for 294.66)
+16:49:58.777 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+16:50:07.543 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:50:07.543 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:50:07.544 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+16:50:07.546 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 사용자가 로그인을 시도했습니다!
+16:50:07.546 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 로그인을 요청한 세션 ID : [9528C65A99CB9E6F42E0C76BADEB6600]
+16:50:07.546 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 입력한 ID : ktech
+16:50:07.546 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 입력한 PASSWORD : ktech!@#$
+16:50:07.547 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+16:50:07.553 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.mariadb.jdbc.Connection@73c11b02
+16:50:07.553 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+16:50:07.554 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 사용자가 로그인에 성공했습니다!
+16:50:08.886 [http-nio-8080-exec-2] INFO  c.e.demo.controller.LoginController - 사용자가 로그아웃을 요청했습니다, 삭제된 세션 ID : [9528C65A99CB9E6F42E0C76BADEB6600]
+16:50:08.892 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource loginn.html.]
+16:51:49.017 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+16:51:49.017 [Thread-7] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+16:51:49.018 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+16:51:49.020 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+16:51:49.020 [Thread-7] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+16:51:49.021 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+16:51:49.033 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+16:51:49.098 [restartedMain] INFO  c.example.demo.FirstWebApplication - Starting FirstWebApplication using Java 21.0.7 with PID 37700 (G:\Java\workspace\first_web\bin\main started by ASUS in G:\Java\workspace\first_web)
+16:51:49.098 [restartedMain] INFO  c.example.demo.FirstWebApplication - No active profile set, falling back to 1 default profile: "default"
+16:51:49.192 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+16:51:49.193 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+16:51:49.193 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:51:49.193 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.44]
+16:51:49.202 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:51:49.202 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 103 ms
+16:51:49.255 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+16:51:49.321 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+16:51:49.325 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+16:51:49.326 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+16:51:49.328 [restartedMain] INFO  c.example.demo.FirstWebApplication - Started FirstWebApplication in 0.242 seconds (process running for 405.212)
+16:51:49.328 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+16:51:55.776 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+16:51:55.776 [Thread-11] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+16:51:55.776 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+16:51:55.779 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+16:51:55.779 [Thread-11] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+16:51:55.831 [restartedMain] INFO  c.example.demo.FirstWebApplication - Starting FirstWebApplication using Java 21.0.7 with PID 37700 (G:\Java\workspace\first_web\bin\main started by ASUS in G:\Java\workspace\first_web)
+16:51:55.831 [restartedMain] INFO  c.example.demo.FirstWebApplication - No active profile set, falling back to 1 default profile: "default"
+16:51:55.927 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+16:51:55.927 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+16:51:55.927 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:51:55.927 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.44]
+16:51:55.936 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:51:55.936 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 104 ms
+16:51:55.982 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+16:51:56.050 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+16:51:56.053 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+16:51:56.055 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+16:51:56.056 [restartedMain] INFO  c.example.demo.FirstWebApplication - Started FirstWebApplication in 0.235 seconds (process running for 411.941)
+16:51:56.057 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+16:52:08.322 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:52:08.322 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:52:08.322 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+16:52:11.900 [http-nio-8080-exec-4] INFO  c.e.demo.controller.LoginController - 사용자가 로그인을 시도했습니다!
+16:52:11.900 [http-nio-8080-exec-4] INFO  c.e.demo.controller.LoginController - 로그인을 요청한 세션 ID : [9528C65A99CB9E6F42E0C76BADEB6600]
+16:52:11.901 [http-nio-8080-exec-4] INFO  c.e.demo.controller.LoginController - 입력한 ID : ktech
+16:52:11.901 [http-nio-8080-exec-4] INFO  c.e.demo.controller.LoginController - 입력한 PASSWORD : ktech!@#$
+16:52:11.901 [http-nio-8080-exec-4] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+16:52:11.908 [http-nio-8080-exec-4] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection org.mariadb.jdbc.Connection@64c6cebb
+16:52:11.909 [http-nio-8080-exec-4] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+16:52:11.910 [http-nio-8080-exec-4] INFO  c.e.demo.controller.LoginController - 사용자가 로그인에 성공했습니다!
+16:52:13.399 [http-nio-8080-exec-5] INFO  c.e.demo.controller.LoginController - 사용자가 로그아웃을 요청했습니다, 삭제된 세션 ID : [9528C65A99CB9E6F42E0C76BADEB6600]
+16:54:26.169 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 사용자가 로그인을 시도했습니다!
+16:54:26.169 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 로그인을 요청한 세션 ID : [9528C65A99CB9E6F42E0C76BADEB6600]
+16:54:26.169 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 입력한 ID : ktech
+16:54:26.169 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 입력한 PASSWORD : ktech!@#$
+16:54:26.172 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 사용자가 로그인에 성공했습니다!
+16:54:27.758 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource .well-known/appspecific/com.chrome.devtools.json.]
+16:54:47.667 [http-nio-8080-exec-2] INFO  c.e.demo.controller.LoginController - 사용자가 로그아웃을 요청했습니다, 삭제된 세션 ID : [9528C65A99CB9E6F42E0C76BADEB6600]
+16:54:47.683 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource .well-known/appspecific/com.chrome.devtools.json.]
+16:56:18.139 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+17:08:36.563 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+17:08:36.564 [Thread-15] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+17:08:36.564 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+17:08:36.566 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+17:08:36.566 [Thread-15] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+17:08:36.567 [Thread-15] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+17:08:36.573 [Thread-15] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+17:08:36.629 [restartedMain] INFO  c.example.demo.FirstWebApplication - Starting FirstWebApplication using Java 21.0.7 with PID 37700 (G:\Java\workspace\first_web\bin\main started by ASUS in G:\Java\workspace\first_web)
+17:08:36.629 [restartedMain] INFO  c.example.demo.FirstWebApplication - No active profile set, falling back to 1 default profile: "default"
+17:08:36.726 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+17:08:36.727 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+17:08:36.727 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+17:08:36.727 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.44]
+17:08:36.736 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+17:08:36.736 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 105 ms
+17:08:36.792 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+17:08:36.870 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+17:08:36.874 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+17:08:36.876 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+17:08:36.877 [restartedMain] INFO  c.example.demo.FirstWebApplication - Started FirstWebApplication in 0.261 seconds (process running for 1412.762)
+17:08:36.878 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+17:08:53.569 [RMI TCP Connection(33)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+17:08:53.570 [RMI TCP Connection(33)-127.0.0.1] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+17:08:53.570 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+17:08:53.571 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+17:08:53.571 [RMI TCP Connection(33)-127.0.0.1] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+17:13:55.103 [restartedMain] INFO  c.example.demo.FirstWebApplication - Starting FirstWebApplication using Java 21.0.7 with PID 40840 (G:\Java\workspace\first_web\bin\main started by ASUS in G:\Java\workspace\first_web)
+17:13:55.104 [restartedMain] INFO  c.example.demo.FirstWebApplication - No active profile set, falling back to 1 default profile: "default"
+17:13:55.211 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+17:13:55.211 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+17:13:55.725 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+17:13:55.730 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+17:13:55.731 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+17:13:55.731 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.44]
+17:13:55.756 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+17:13:55.756 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 544 ms
+17:13:55.951 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+17:13:56.156 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+17:13:56.166 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+17:13:56.175 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+17:13:56.179 [restartedMain] INFO  c.example.demo.FirstWebApplication - Started FirstWebApplication in 1.296 seconds (process running for 1.625)
+17:13:57.513 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:13:57.514 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+17:13:57.514 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+17:14:04.161 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource login.html/employee.]
+17:14:04.471 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource login.html/lib/owlcarousel/assets/owl.carousel.min.css.]
+17:14:04.471 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource login.html/css/bootstrap.min.css.]
+17:14:04.471 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource login.html/css/style.css.]
+17:14:04.471 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource login.html/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css.]
+17:14:14.482 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 사용자가 로그인을 시도했습니다!
+17:14:14.483 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 로그인을 요청한 세션 ID : [9528C65A99CB9E6F42E0C76BADEB6600]
+17:14:14.483 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 입력한 ID : ktech
+17:14:14.483 [http-nio-8080-exec-1] INFO  c.e.demo.controller.LoginController - 입력한 PASSWORD : ktech!@#4
+17:14:14.496 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+17:14:14.571 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.mariadb.jdbc.Connection@43a937ce
+17:14:14.572 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+17:14:14.611 [http-nio-8080-exec-1] WARN  c.e.demo.controller.LoginController - 사용자가 로그인에 실패했습니다
+17:14:20.048 [http-nio-8080-exec-6] INFO  c.e.demo.controller.LoginController - 사용자가 로그인을 시도했습니다!
+17:14:20.048 [http-nio-8080-exec-6] INFO  c.e.demo.controller.LoginController - 로그인을 요청한 세션 ID : [9528C65A99CB9E6F42E0C76BADEB6600]
+17:14:20.048 [http-nio-8080-exec-6] INFO  c.e.demo.controller.LoginController - 입력한 ID : ktech
+17:14:20.048 [http-nio-8080-exec-6] INFO  c.e.demo.controller.LoginController - 입력한 PASSWORD : ktech!@#$
+17:14:20.056 [http-nio-8080-exec-6] INFO  c.e.demo.controller.LoginController - 사용자가 로그인에 성공했습니다!
+17:14:37.559 [http-nio-8080-exec-8] INFO  c.e.d.controller.EmployeesController - 사용자가 /employees 페이지를 요청함
+17:14:40.412 [http-nio-8080-exec-3] INFO  c.e.demo.controller.LoginController - 사용자가 로그아웃을 요청했습니다, 삭제된 세션 ID : [9528C65A99CB9E6F42E0C76BADEB6600]
+17:14:41.978 [http-nio-8080-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.example.demo.exception.SessionExpiredException: session expired : 9528C65A99CB9E6F42E0C76BADEB6600]
+17:14:50.953 [RMI TCP Connection(10)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+17:14:50.955 [RMI TCP Connection(10)-127.0.0.1] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+17:14:50.955 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+17:14:50.958 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+17:14:50.958 [RMI TCP Connection(10)-127.0.0.1] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+17:14:50.961 [RMI TCP Connection(10)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+17:14:50.974 [RMI TCP Connection(10)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

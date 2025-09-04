@@ -4,7 +4,7 @@
 <!-- 이 xml 파일은 namespace에 지정한 mapper인터페에스와 연동! -->
 <mapper namespace="com.example.demo.dao.UserDAO">
 
-	<select id="getUser" resultType="com.example.demo.dto.User">
+	<select id="login" resultType="com.example.demo.dto.User">
 		SELECT *
 		FROM user
 		<where>
