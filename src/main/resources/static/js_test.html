@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	
+	<body>
+	
+	
+		<h3>[ 내용 변경 예제 ]</h3>	
+
+		<button onclick = "document.getElementById('js_change_value').innerHTML = '단락 내용을 변경하였습니다.'">
+			내용 변경
+		</button>
+		<a id = 'js_change_value'>안녕하세요.</a>
+		<hr>
+	
+	
+		<h3>[ 속성 변경 예제 ]</h3>
+		<img id = 'js_change_src' src = 'img/on.png' style = "width:100px; height:46px;" onclick = "toggleImage()">
+		<hr>
+		
+		<h3>[ 스타일 변경 예제 ]</h3>
+		<button onclick = "document.getElementById('js_change_style').style.color='red'">
+			스타일 변경
+		</button>
+		<a id = 'js_change_style'>Java Script != Java</a>
+		<hr>
+		
+		
+		
+		<ul>
+			<li class = "subject" id = "OS">RockyLinux</li>
+			<li class = "subject" id = "DB">MariaDB</li>
+			<li class = "subject" id = "PL">C</li>
+			<li class = "subject" id = "PL">C++</li>
+			<li class = "subject" id = "PL">Java</li>		
+		</ul>
+		
+		
+		
+		
+		
+		<script>
+		
+		
+			const elems = document.getElementsByTagName("li");
+			// elems.style.color = 'red';
+			
+			for (let i = 0; i < elems.length; i++)
+			{
+				elems[i].style.color = 'red';				
+			}
+		
+			console.log(typeof elems);
+			
+			let isOn = true;
+				
+			function toggleImage()
+			{
+				const buttonImage = document.getElementById('js_change_src');
+				
+				if (isOn) {
+					buttonImage.src = 'img/off.png';
+					isOn = false;			
+				}
+				else {
+					buttonImage.src = 'img/on.png';
+					isOn = true;
+				}
+			}
+
+			
+			
+		</script>
+		
+	
+	</body>
+
+</html>

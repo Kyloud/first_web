@@ -10,24 +10,36 @@
 		<hr>
 		<p> </p>
 		
+		<button onclick = "Node()">버튼</button>
+		
 		<script>
-			console.log(document.nodeName);
+			/* console.log(document.nodeName);
 			console.log(document.childNodes[0].nodeName);
 			console.log(document.childNodes[1].nodeName);
+			*/
+			function Node() {
+				var newNode = document.createElement("div");
+				newNode.textContent = "<button>asdjakldjklad </button>";
+				
+				
+				var parentNode = document.querySelector("body");
+				parentNode.append(newNode);
+			}
 			
 			let test = document.childNodes[1].childNodes;
 			let input_list = '';
+			let childrens = document.childNodes[1].children;
 			
-			for ( i = 0; i < test.length; i++)
+			for ( i = 0; i < childrens.length; i++)
 			{
-				input_list += test[i].nodeName + '<br>';
+				input_list += childrens[i].nodeName + '<br>';
 			}
 			
 			document.getElementsByTagName('p')[0].innerHTML = input_list;
 			
 		</script>
+		
+		
 	</body>
-	
-	
 	
 </html>

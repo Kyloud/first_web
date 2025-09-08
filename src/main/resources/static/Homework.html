@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>HomeWork</title>
+    </head>
+    
+    <style>
+        table{ border-collapse : collapse; }
+        th,td
+        {
+             text-align: center;
+             border: 1px solid #000;
+             padding: 10px;
+        }
+    </style>
+
+	<script>
+
+        function AddTableData() {
+                const inputName = document.getElementById('name').value;
+                let inputScore = document.getElementById('score').value;   
+
+                // console.log(inputName);
+                // console.log(inputScore);
+
+				var rowNode = document.createElement("tr");
+				var nameNode = document.createElement("th");
+				var scoreNode = document.createElement("th");
+
+				nameNode.textContent = inputName;
+                nameNode.scope = "row";
+                nameNode.id = "name";
+                
+				scoreNode.textContent = inputScore;
+                scoreNode.scope = "row";
+                scoreNode.id = "score";
+				
+				var parentNode = document.querySelector("table");
+
+                parentNode.append(rowNode);
+				parentNode.append(nameNode);
+				parentNode.append(scoreNode);
+			}
+
+            function showAvg()
+            {
+                var resultNode = document.createElement("div");
+
+                let scoreList = [];
+                let sum = 0;
+                const elems = document.getElementsByTagName("th");
+                
+                for (let i = 0; i < elems.length; i++)
+			    {
+                    if (elems[i].id == "score")
+                    {
+                        scoreList.push(parseInt(elems[i].innerHTML));
+                    }
+                }
+                
+                for (let score of scoreList)
+                {
+                    sum += score;
+                }
+
+                resultNode.textContent = `평균 : ${sum / scoreList.length}`;
+
+                var parentNode = document.querySelector("body");
+				parentNode.append(resultNode);
+            }
+
+            function showSum()
+            {
+                var resultNode = document.createElement("div");
+
+                let scoreList = [];
+                let sum = 0;
+
+                const elems = document.getElementsByTagName("th");
+                
+                for (let i = 0; i < elems.length; i++)
+			    {
+                    if (elems[i].id == "score")
+                    {
+                        scoreList.push(parseInt(elems[i].innerHTML));
+                    }
+                }
+                
+                for (let score of scoreList)
+                {
+                    sum += score;
+                }
+
+                resultNode.textContent = `합계 : ${sum}`;
+
+                var parentNode = document.querySelector("body");
+                parentNode.append(resultNode);
+            }
+	
+	</script>
+
+
+    <body>
+        <h2>학생 점수 입력</h2>
+        이름: <input type ="text" id = "name">
+
+        점수: <input type = "text" id = "score">
+        <button onclick = "AddTableData()" >입력</button>
+		
+		<p></p>
+		
+        <table>
+            <tr>
+                <th scope="col" id = "column">이름</th>
+                <th scope="col" id = "column">점수</th>
+            </tr>
+        </table>
+
+        <p></p>
+        <button onclick = "showAvg()">평균</button> <button onclick = "showSum()">합계</button>
+
+    </body>
+</html>
