@@ -2,10 +2,48 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>HomeWork</title>
+        <title>Homework</title>
     </head>
     
-    <style>
+    <body>
+        <h2>학생 점수 입력</h2>
+        
+        <label for = "inputName">이름 :</label>
+        <input type ="text" id = "inputName"  onkeydown = "enter(event)">
+        
+        <label for = "inputScore">점수 :</label>
+        <input type = "text" id = "inputScore" onkeydown = "enter(event)">
+        
+        <button id = "scoreBtn" onclick = "addStudent()">입력</button>
+		
+		<p></p>
+		
+        <table>
+	        <thead>
+	            <tr>
+	                <th scope="col" id = "column">이름</th>
+	                <th scope="col" id = "column">점수</th>
+	                <th scope="col" id = "column">동작</th>
+	            </tr>
+        	</thead>
+        	
+        	<tbody id = "tableBody">
+        	
+        	</tbody>
+        </table>
+        
+        <p></p>
+        
+        <button onclick = "showAvg()">평균</button>
+        <button onclick = "showSum()">합계</button>
+        
+        <p></p>
+        
+        <div id = result></div>
+    </body>
+    
+    
+	<style>
         table{ border-collapse : collapse; }
         th,td
         {
@@ -15,41 +53,91 @@
         }
     </style>
 
-	<script>
-        function AddTableData()
-        {
-            const inputName = document.getElementById('name').value;
-            let inputScore = document.getElementById('score').value;   
 
+	<script>
+		function enter (event) {
+			if (event.key == 'Enter') {
+				addStudent();
+			}
+		}
+		
+        function addStudent()
+        {
+            const inputName = document.getElementById('inputName').value;
+            let inputScore = document.getElementById('inputScore').value;   
+			
+            if (!inputName || !inputScore)
+            {
+				alert("이름과 점수를 모두 입력해주세요!!!");            	
+            	return;
+            }
+            	
             // console.log(inputName);
             // console.log(inputScore);
 
-            var rowNode = document.createElement("tr");
-            var nameNode = document.createElement("th");
-            var scoreNode = document.createElement("th");
-
+            var nameNode = document.createElement("td");
             nameNode.textContent = inputName;
             nameNode.scope = "row";
             nameNode.id = "name";
             
+            var scoreNode = document.createElement("td");
             scoreNode.textContent = inputScore;
             scoreNode.scope = "row";
             scoreNode.id = "score";
             
-            var parentNode = document.querySelector("table");
-
+            var buttonNode = document.createElement("td")
+            	var button = document.createElement("button");
+            	button.textContent = "삭제";
+            	button.id = "removeBtn";
+            	button.setAttribute("onclick", "removeStudent(this)");
+            buttonNode.append(button);
+            
+            var rowNode = document.createElement("tr");
+            rowNode.append(nameNode);
+            rowNode.append(scoreNode);
+            rowNode.append(buttonNode);
+            
+            var parentNode = document.querySelector("tbody");
             parentNode.append(rowNode);
-            parentNode.append(nameNode);
-            parentNode.append(scoreNode);
 		}
+		
+        function removeStudent(thisNode)
+        {
+        	var targetRowNode = thisNode.parentNode.parentNode;
+        	targetRowNode.remove();
+        	
 
+        	/*
+        	let i = rows.length - 1;
+        	while(!rows[i].cells[1]) i--;
+        	
+        	rows[i].removeChild(rows[i].cells[1])
+        	*/
+        	
+        	/*
+        	for (let i = 0; i < rows.length; i++)
+        	{        		
+        		for (let j = 0; j < rows[i].cells.length; j++)
+            	{
+        			if (rows[i].cells[j].id == "score") {
+        				rows[i].cells[j].remove();
+        			}
+        		}
+        	}
+        	*/
+        	
+        	
+        }
+        
+        
+        
         function showAvg()
         {
-            var resultNode = document.createElement("div");
+            var resultNode = document.getElementById('result');
 
             let scoreList = [];
             let sum = 0;
-            const elems = document.getElementsByTagName("th");
+            const elems = document.getElementsByTagName("td");
             
             for (let i = 0; i < elems.length; i++)
             {
@@ -64,20 +152,17 @@
                 sum += score;
             }
 
-            resultNode.textContent = `평균 : ${sum / scoreList.length}`;
-
-            var parentNode = document.querySelector("body");
-            parentNode.append(resultNode);
+            resultNode.innerHTML = `평균 : ${sum / scoreList.length}`;
         }
 
         function showSum()
         {
-            var resultNode = document.createElement("div");
+            var resultNode = document.getElementById('result');
 
             let scoreList = [];
             let sum = 0;
 
-            const elems = document.getElementsByTagName("th");
+            const elems = document.getElementsByTagName("td");
             
             for (let i = 0; i < elems.length; i++)
             {
@@ -92,32 +177,9 @@
                 sum += score;
             }
 
-            resultNode.textContent = `합계 : ${sum}`;
-
-            var parentNode = document.querySelector("body");
-            parentNode.append(resultNode);
+            resultNode.innerHTML = `합계 : ${sum}`;
         }
 	</script>
-
-
-    <body>
-        <h2>학생 점수 입력</h2>
-        이름: <input type ="text" id = "name">
-        점수: <input type = "text" id = "score">
-        <button onclick = "AddTableData()" >입력</button>
-		
-		<p></p>
-		
-        <table>
-            <tr>
-                <th scope="col" id = "column">이름</th>
-                <th scope="col" id = "column">점수</th>
-            </tr>
-        </table>
-
-        <p></p>
-        <button onclick = "showAvg()">평균</button> <button onclick = "showSum()">합계</button>
-
-    </body>
+    
 
 </html>
