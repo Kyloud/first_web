@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Ajax Example</title>
+		
+		<style>
+		
+			table 
+			{
+				border-collapse: collapse;
+				margin: 20px;
+			}
+		
+			
+			th, td
+			{
+				border: 1px solid black;
+				padding: 8px;
+				text-align: center;
+			}
+			
+			input
+			{
+				margin: 10px;
+			}
+			
+		</style>
+		
+		
+		
+	</head>
+
+
+	<body>
+		<h3>[Ajax Example]</h3>
+		
+		<hr>
+	
+		<form onsubmit="ajaxExam(event)">
+			
+			<label for = "emp_no">사원번호 : </label>
+			<input type = "text" id = "emp_no">
+			
+			<br>
+			
+			<label for = "first_name">사원이름 : </label>
+			<input type = "text" id = "first_name">
+			
+			<br>
+			
+			<input type = "submit" value = "검색">
+			
+			<table>
+			
+				<thead>
+					<tr>
+						<th>사원 번호</th>
+						<th>사원 이름</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+				
+				</tbody>
+			
+			</table>
+			
+		</form>
+	
+	
+		<script>
+		
+			function ajaxExam(event)
+			{
+				event.preventDefault();
+				
+				var emp_no = document.getElementById("emp_no").value;
+				var first_name = document.getElementById("first_name").value;
+				
+				// 1. XMLHttpRequest 객체 생성
+				var xhr = new XMLHttpRequest();
+				
+				// 2. 이벤트 핸들러 등록
+				xhr.onreadystatechange = function ()
+				{
+					if (xhr.readyState === 4 && xhr.status === 200)
+					{
+						var employee = JSON.parse(xhr.responseText);
+						
+						var table = document.querySelector('table');
+						var row = table.insertRow(-1);	// insertRow(0) 처음에 추가, insertRow(3) 이 위치에 추가, -1 맨 뒤에 추가
+						var cellID = row.insertCell(0);
+						var cellName = row.insertCell(1);
+						
+						cellID.innerHTML = employee.emp_no;
+						cellName.innerHTML = employee.first_name;
+					}
+				}
+				
+				// 3. http 요청 초기화
+				xhr.open('POST', '/ajaxExam', true);
+				
+				// 4. http 요청 헤더 설정
+				xhr.setRequestHeader('Content-Type', 'application/json');
+				
+				// 5. http 요청 전송
+				xhr.send(JSON.stringify({emp_no:emp_no, first_name:first_name}));
+			}
+		
+		</script>
+	
+	
+	</body>
+</html>

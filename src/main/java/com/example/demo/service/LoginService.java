@@ -8,17 +8,17 @@ import com.example.demo.dto.User;
 @Service
 public class LoginService
 {
-	private final UserDAO UserDAO;
+	private final UserDAO userDAO;
 	
-	public LoginService(UserDAO UsersDAO)
+	public LoginService(UserDAO usersDAO)
 	{
-		this.UserDAO = UsersDAO;
+		this.userDAO = usersDAO;
 	}
 
 	public User login(String login_id, String login_password)
 	{
 		// TODO : 비즈니스 로직.
-		return UserDAO.login(login_id, login_password);
+		return userDAO.login(login_id, login_password);
 	}
 	
 	

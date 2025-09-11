@@ -4,7 +4,7 @@
 	<head>
 	
 		<meta charset="UTF-8">
-		<title>Employees Table</title>
+		<title>Departments Table</title>
 		
 		
 		<!-- Icon Font Stylesheet -->
@@ -32,7 +32,7 @@
 		<th:block th:insert="~{fragments_sidebar::sidebar}"></th:block>
 		<div class="content">
 		<div class="bg-secondary rounded h-100 p-4">
-			<h3 class="mb-4">employees Table INFO</h3>
+			<h3 class="mb-4">departments Table INFO</h3>
 			
 			<div class="bg-secondary rounded h-100 p-4">
 				<table class="table">
@@ -40,25 +40,19 @@
 					<thead>
 						
 						<tr>
-							<th scope="col">#</th>
-							<th scope="col">birth_date</th>
-							<th scope="col">first_name</th>
-							<th scope="col">last_name</th>
-							<th scope="col">gender</th>
-							<th scope="col">hire_date</th>
+							<th scope="col">No</th>
+							<th scope="col">dept_no</th>
+							<th scope="col">dept_name</th>
 						</tr>
 						
 					</thead>	
 				
 					<tbody>
 					
-						<tr th:each="employee:${employees}">
-							<td scope="row" th:text="${employee.emp_no}"></td>
-							<td scope="row" th:text="${employee.birth_date}"></td>
-							<td scope="row" th:text="${employee.first_name}"></td>
-							<td scope="row" th:text="${employee.last_name}"></td>
-							<td scope="row" th:text="${employee.gender}"></td>
-							<td scope="row" th:text="${employee.hire_date}"></td>
+						<tr th:each="departments:${departments}">
+							<td scope="row" th:text="${no}"></td>
+							<td scope="row" th:text="*{departments.dept_no}"></td>
+							<td scope="row" th:text="${departments.dept_name}"></td>
 						</tr>
 					
 					</tbody>

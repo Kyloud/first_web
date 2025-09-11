@@ -10,35 +10,35 @@ import com.example.demo.dto.Employees;
 @Service
 public class EmployeesService
 {
-	private final EmployeesDAO EmployeesDAO;
+	private final EmployeesDAO employeesDAO;
 	
-	public EmployeesService(EmployeesDAO EmployeesDAO)
+	public EmployeesService(EmployeesDAO employeesDAO)
 	{
-		this.EmployeesDAO = EmployeesDAO;
+		this.employeesDAO = employeesDAO;
 	}
 	
 	public List<Employees> getAllEmployees()
 	{
 		// TODO : 비즈니스 로직.
-		return EmployeesDAO.getAllEmployees();
+		return employeesDAO.getAllEmployees();
 	}
 	
 	public Employees getEmployeeById(String id)
 	{	
 		// TODO : 비즈니스 로직
-		Employees employees = EmployeesDAO.getEmployeeById(id);
+		Employees employees = employeesDAO.getEmployeeById(id);
 		return employees;
 	}
 	
 	public Employees getEmployee(String emp_no, String first_name)
 	{	
 		// TODO : 비즈니스 로직
-		return EmployeesDAO.getEmployee(emp_no, first_name);
+		return employeesDAO.getEmployee(emp_no, first_name);
 	}
 
 	public int updateFirstName(Employees employees)
 	{
 		// TODO : 비즈니스 로직
-		return EmployeesDAO.updateFirstName(employees);
+		return employeesDAO.updateFirstName(employees);
 	}
 }

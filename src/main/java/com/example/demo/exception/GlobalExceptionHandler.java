@@ -1,5 +1,6 @@
 package com.example.demo.exception;
 
+import org.springframework.expression.spel.SpelEvaluationException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
@@ -32,4 +33,6 @@ public class GlobalExceptionHandler {
   public String handleException() {
       return "500";
   }
+  
+  
 }

@@ -22,10 +22,10 @@
 		SELECT *
 		FROM employees
 		<where>
-			<if test = "emp_no != null" >
+			<if test = "emp_no != null and emp_no != '' ">
 				AND emp_no = #{emp_no}
 			</if>
-			<if test = "first_name != null" >
+			<if test = "first_name != null and first_name != '' ">
 				AND first_name = #{first_name}
 			</if>
 		</where>

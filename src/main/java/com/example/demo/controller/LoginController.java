@@ -17,11 +17,11 @@ import jakarta.servlet.http.HttpSession;
 public class LoginController
 {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
-	private final LoginService LoginService;
+	private final LoginService loginService;
 	
-	LoginController (LoginService LoginService)
+	LoginController (LoginService loginService)
 	{
-		this.LoginService = LoginService;
+		this.loginService = loginService;
 	}
 	
 	@PostMapping("login")
@@ -44,7 +44,7 @@ public class LoginController
 		
 		if (login_user == null)
 		{
-			login_user = LoginService.login(user.getLogin_id(), user.getLogin_password());
+			login_user = loginService.login(user.getLogin_id(), user.getLogin_password());
 		
 			if (login_user != null)
 			{	

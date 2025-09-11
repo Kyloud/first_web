@@ -9,10 +9,10 @@
         <h2>학생 점수 입력</h2>
         
         <label for = "inputName">이름 :</label>
-        <input type ="text" id = "inputName"  onkeydown = "enter(event)">
+        <input type ="text" id = "inputName"  onkeydown = "checkEnter(event)">
         
         <label for = "inputScore">점수 :</label>
-        <input type = "text" id = "inputScore" onkeydown = "enter(event)">
+        <input type = "text" id = "inputScore" onkeydown = "checkEnter(event)">
         
         <button id = "scoreBtn" onclick = "addStudent()">입력</button>
 		
@@ -55,57 +55,75 @@
 
 
 	<script>
-		function enter (event) {
+	
+		function colorChangeYellow(rowNode)
+		{
+			rowNode.style.backgroundColor = 'yellow';
+		}
+		
+		
+		function colorChangeWhite(rowNode)
+		{
+			rowNode.style.backgroundColor = 'white';
+		}
+		
+		
+		function checkEnter (event) {
 			if (event.key == 'Enter') {
 				addStudent();
 			}
 		}
 		
+		
+		
         function addStudent()
         {
-            const inputName = document.getElementById('inputName').value;
-            let inputScore = document.getElementById('inputScore').value;   
+            const inputName = document.getElementById('inputName');
+            const inputScore = document.getElementById('inputScore');
 			
-            if (!inputName || !inputScore)
+            if (!inputName.value || !inputScore.value)
             {
-				alert("이름과 점수를 모두 입력해주세요!!!");            	
+            	inputName.focus();
+				alert("이름과 점수를 모두 입력해주세요!!!"); 
             	return;
             }
-            	
+            
             // console.log(inputName);
             // console.log(inputScore);
 
             var nameNode = document.createElement("td");
-            nameNode.textContent = inputName;
+            nameNode.textContent = inputName.value;
             nameNode.scope = "row";
             nameNode.id = "name";
-            
+
             var scoreNode = document.createElement("td");
-            scoreNode.textContent = inputScore;
+            scoreNode.textContent = inputScore.value;
             scoreNode.scope = "row";
             scoreNode.id = "score";
-            
+
             var buttonNode = document.createElement("td")
             	var button = document.createElement("button");
             	button.textContent = "삭제";
             	button.id = "removeBtn";
             	button.setAttribute("onclick", "removeStudent(this)");
             buttonNode.append(button);
-            
+
             var rowNode = document.createElement("tr");
+            rowNode.setAttribute("onmouseover", "colorChangeYellow(this)")
+            rowNode.setAttribute("onmouseout", "colorChangeWhite(this)")
             rowNode.append(nameNode);
             rowNode.append(scoreNode);
             rowNode.append(buttonNode);
-            
+
             var parentNode = document.querySelector("tbody");
             parentNode.append(rowNode);
 		}
-		
+        
+        
         function removeStudent(thisNode)
         {
         	var targetRowNode = thisNode.parentNode.parentNode;
-        	targetRowNode.remove();
-        	
+        	targetRowNode.remove();        	
 
         	/*
         	let i = rows.length - 1;
@@ -155,6 +173,9 @@
             resultNode.innerHTML = `평균 : ${sum / scoreList.length}`;
         }
 
+        
+        
+        
         function showSum()
         {
             var resultNode = document.getElementById('result');
