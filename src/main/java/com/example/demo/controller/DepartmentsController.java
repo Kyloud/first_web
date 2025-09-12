@@ -38,18 +38,15 @@ public class DepartmentsController
 	
 	@PostMapping("/ajaxInsertDepartment")
 	@ResponseBody
-	public String ajaxInsertDepartment
+	public int ajaxInsertDepartment
 	(		
 			@RequestBody Departments departments
 	)
 	{
-		System.out.println("asdasd" + departments.getDept_no());
-		
 		int result = departmentsService.insertDepartment(departments.getDept_no(), departments.getDept_name());
 		
-		if (result == 0)		return "실패";
-		else if (result == 1)	return "성공";
-		else					return "대형사고";
+		return result;
 	}
+	
 	
 }

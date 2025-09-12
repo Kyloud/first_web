@@ -125,28 +125,34 @@
 				let dept_no = document.getElementById("dept_no").value;
 				let dept_name = document.getElementById("dept_name").value;
 				
-				// 원래
-				console.log("ID : ", dept_no);
-				console.log("이름 : ", dept_name);
-				
 				// 1. XMLHttpRequest 객체 생성
 				var xhr = new XMLHttpRequest();
 				
 				// 2. 이벤트 핸들러 등록
 				xhr.onreadystatechange = function ()
 				{
+					console.log(xhr.readyState);
 					if (xhr.readyState === 4 && xhr.status === 200)
 					{
-						var department = JSON.parse(xhr.responseText);
+						var requestResult = xhr.response;
+						console.log("영향받은 열 (업데이트 로우) : ", requestResult);
 						
 						var departmentsTable = document.querySelector('table');
 						var row = departmentsTable.insertRow(-1);	// insertRow(0) 처음에 추가, insertRow(3) 이 위치에 추가, -1 맨 뒤에 추가
 						
-						var cellID = row.insertCell(0);
-						var cellName = row.insertCell(1);
+						const lastNo = departmentsTable.rows.length;
 						
-						cellID.innerHTML = department.dept_no;
-						cellName.innerHTML = department.dept_name;
+						var cellNo = row.insertCell(0);
+						var cellDept_no = row.insertCell(1);
+						var cellDept_name = row.insertCell(2);
+						
+						cellNo.innerHTML = lastNo - 1;
+						cellDept_no.innerHTML = dept_no;
+						cellDept_name.innerHTML = dept_name;
+					}
+					else if (xhr.readyState === 4 && xhr.status !== 200)
+					{
+						alert("삽입 실패!!!!!" + "\n[오류 코드] " + xhr.status);
 					}
 				}
 				
@@ -157,7 +163,7 @@
 				xhr.setRequestHeader('Content-Type', 'application/json');
 				
 				// 5. http 요청 전송
-				xhr.send(JSON.stringify({dept_no:dept_no, dept_name:dept_name}));
+	            xhr.send(JSON.stringify({dept_no:dept_no, dept_name:dept_name}));
 			}
 			
 			

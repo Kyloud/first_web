@@ -11,7 +11,7 @@
 	</select>
 	
 	<insert id="insertDepartment" parameterType="com.example.demo.dto.Departments">
-		REPLACE INTO departments
+		INSERT INTO departments
 		(
 		    dept_no,
     		dept_name

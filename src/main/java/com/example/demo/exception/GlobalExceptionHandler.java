@@ -1,6 +1,6 @@
 package com.example.demo.exception;
 
-import org.springframework.expression.spel.SpelEvaluationException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
@@ -28,11 +28,19 @@ public class GlobalExceptionHandler {
 	  return modelAndView;
   }
   
-
-  @ExceptionHandler(Exception.class)
-  public String handleException() {
-      return "500";
+  // SQL관련 오류 처리 DuplicateKeyException의 부모 예외 클래스
+  // 이거 없으면 작동 안됨 진짜 안 됨
+  @ExceptionHandler(DataIntegrityViolationException.class)
+  public int handleException(DataIntegrityViolationException e)
+  {
+      e.printStackTrace();
+      return -1;
   }
   
-  
+  @ExceptionHandler(Exception.class)
+  public String handleException(Exception e) {
+	  e.printStackTrace();
+      return "500";
+  }
+
 }
