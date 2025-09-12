@@ -17,9 +17,14 @@ public class DepartmentsService
 		this.departmentsDAO = departmentsDAO;		
 	}
 	
-	public List<Departments> getDepartmentsTable()
+	public List<Departments> getAllDepartments()
 	{
-		return departmentsDAO.getDepartmentsTable();
+		return departmentsDAO.getAllDepartments();
+	}
+	
+	public int insertDepartment(String dept_no, String dept_name)
+	{
+		return departmentsDAO.insertDepartment(dept_no, dept_name);
 	}
 	
 	

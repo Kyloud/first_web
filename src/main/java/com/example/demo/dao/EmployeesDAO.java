@@ -23,6 +23,6 @@ public interface EmployeesDAO
 
 	// 단일 객체를 매개뱐수로 전달해서, update 쿼리 실행.
 	// * 반환값은 int 고정. (영향받은 rows)
-	public int updateFirstName(Employees employees);
+	public int updateFirstName(Employees employee);
 
 }

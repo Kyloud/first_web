@@ -31,41 +31,41 @@
 		
 		<th:block th:insert="~{fragments_sidebar::sidebar}"></th:block>
 		<div class="content">
-		<div class="bg-secondary rounded h-100 p-4">
-			<h3 class="mb-4">employees Table INFO</h3>
-			
 			<div class="bg-secondary rounded h-100 p-4">
-				<table class="table">
+				<h3 class="mb-4">employees Table INFO</h3>
 				
-					<thead>
-						
-						<tr>
-							<th scope="col">#</th>
-							<th scope="col">birth_date</th>
-							<th scope="col">first_name</th>
-							<th scope="col">last_name</th>
-							<th scope="col">gender</th>
-							<th scope="col">hire_date</th>
-						</tr>
-						
-					</thead>	
-				
-					<tbody>
+				<div class="bg-secondary rounded h-100 p-4">
+					<table class="table">
 					
-						<tr th:each="employee:${employees}">
-							<td scope="row" th:text="${employee.emp_no}"></td>
-							<td scope="row" th:text="${employee.birth_date}"></td>
-							<td scope="row" th:text="${employee.first_name}"></td>
-							<td scope="row" th:text="${employee.last_name}"></td>
-							<td scope="row" th:text="${employee.gender}"></td>
-							<td scope="row" th:text="${employee.hire_date}"></td>
-						</tr>
+						<thead>
+							
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">birth_date</th>
+								<th scope="col">first_name</th>
+								<th scope="col">last_name</th>
+								<th scope="col">gender</th>
+								<th scope="col">hire_date</th>
+							</tr>
+							
+						</thead>	
 					
-					</tbody>
-				
-				</table>	
+						<tbody>
+						
+							<tr th:each="employee:${employees}">
+								<td scope="row" th:text="${employee.emp_no}"></td>
+								<td scope="row" th:text="${employee.birth_date}"></td>
+								<td scope="row" th:text="${employee.first_name}"></td>
+								<td scope="row" th:text="${employee.last_name}"></td>
+								<td scope="row" th:text="${employee.gender}"></td>
+								<td scope="row" th:text="${employee.hire_date}"></td>
+							</tr>
+						
+						</tbody>
+					
+					</table>	
+				</div>
 			</div>
-		</div>
 		</div>
 
 

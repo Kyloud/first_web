@@ -13,11 +13,9 @@ public class AjaxController
 {
 	private final EmployeesService employeesService;
 	
-	public AjaxController(EmployeesService employeesService)
-	{
+	public AjaxController (EmployeesService employeesService) {
 		this.employeesService = employeesService;
 	}
-	
 	
 	@PostMapping("/ajaxExam")
 	@ResponseBody
@@ -26,5 +24,5 @@ public class AjaxController
 		employees = employeesService.getEmployee(Integer.toString(employees.getEmp_no()), employees.getFirst_name());
 		return employees;
 	}
-	
+
 }

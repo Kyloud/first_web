@@ -28,9 +28,9 @@ public class EmployeesController
 	@GetMapping("employees")
 	public String getAllEmployees(Model model)
 	{
-		List<Employees> employees = employeesService.getAllEmployees();
+		List<Employees> employee = employeesService.getAllEmployees();
 		
-		model.addAttribute("employees", employees);
+		model.addAttribute("employees", employee);
 		logger.info("사용자가 /employees 페이지를 요청함");
 		
 		return "employees";
@@ -41,14 +41,14 @@ public class EmployeesController
 	public Employees getEmployeeById(@RequestParam("id") String id)
 	{
 		logger.info("사용자가 /employeesById 페이지를 요청함");
-		Employees employees = employeesService.getEmployeeById(id);
-		if ( employees == null )
+		Employees employee = employeesService.getEmployeeById(id);
+		if ( employee == null )
 		{
 			logger.warn("사용자가 사원 번호로 [" + id + "] 를 검색했지만 어떠한 결과도 찾을 수 없었습니다.");
-			employees = new Employees();
-			employees.setFirst_name("없어");
+			employee = new Employees();
+			employee.setFirst_name("없어");
 		}
-		return employees;
+		return employee;
 	}
 	
 	@GetMapping("employee")
@@ -64,12 +64,12 @@ public class EmployeesController
 	public String updateFirstName() 
 	{
 		logger.info("사용자가 /updateFirstName 페이지를 요청함");
-		Employees employees = new Employees();
-		employees.setEmp_no(10001);
-		employees.setFirst_name("lee");
-		employees.setLast_name("sungran");
+		Employees employee = new Employees();
+		employee.setEmp_no(10001);
+		employee.setFirst_name("lee");
+		employee.setLast_name("sungran");
 		
-		int result = employeesService.updateFirstName(employees);
+		int result = employeesService.updateFirstName(employee);
 		
 		if (result == 0)		return "실패";
 		else if (result == 1)	return "성공";

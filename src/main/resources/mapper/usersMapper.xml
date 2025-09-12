@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "../dtd/mybatis-3-mapper.dtd">
 
 <!-- 이 xml 파일은 namespace에 지정한 mapper인터페에스와 연동! -->
-<mapper namespace="com.example.demo.dao.UserDAO">
+<mapper namespace="com.example.demo.dao.UsersDAO">
 
-	<select id="login" resultType="com.example.demo.dto.User">
+	<select id="login" resultType="com.example.demo.dto.Users">
 		SELECT *
-		FROM user
+		FROM users
 		<where>
 				login_id = #{login_id}
 				AND login_password = #{login_password}

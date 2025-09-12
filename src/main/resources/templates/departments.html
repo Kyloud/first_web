@@ -22,51 +22,147 @@
 	    <link href="css/style.css" rel="stylesheet">
 		
 		
-
+		<style>
+			.modalAdd
+			{
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height:100%;
+				display:none;
+				justify-content: center;
+				align-items: center;
+				background: rgba(0,0,0,0.5);
+				z-index: 1000;
+			}		
+			
+			.modalContent
+			{
+				background: #fff;
+				padding: 20px 30px;
+				border-radius: 10px;
+				min-width: 300px;
+				box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+			}
+		</style>
+		
+		
 	</head>
 
 
 	
 	<body>
-		
 		<th:block th:insert="~{fragments_sidebar::sidebar}"></th:block>
 		<div class="content">
-		<div class="bg-secondary rounded h-100 p-4">
-			<h3 class="mb-4">departments Table INFO</h3>
-			
 			<div class="bg-secondary rounded h-100 p-4">
-				<table class="table">
+				<h3 class="mb-4">departments Table INFO</h3>
 				
-					<thead>
+				<div class="bg-secondary rounded h-100 p-4">
+					<table class="table">
+						<thead>				
+							<tr>
+								<th scope = "col">No</th>
+								<th scope = "col">dept_no</th>
+								<th scope = "col">dept_name</th>
+							</tr>
+						</thead>	
 						
-						<tr>
-							<th scope="col">No</th>
-							<th scope="col">dept_no</th>
-							<th scope="col">dept_name</th>
-						</tr>
-						
-					</thead>	
+						<tbody>
+							<tr th:each="department, stat : ${departments}">
+								<td scope = "row" th:text = "${stat.count}"></td>
+								<td scope = "row" th:text = "${department.dept_no}"></td>
+								<td scope = "row" th:text = "${department.dept_name}"></td>
+							</tr>
+						</tbody>
+					</table>	
+				</div>
 				
-					<tbody>
-					
-						<tr th:each="departments:${departments}">
-							<td scope="row" th:text="${no}"></td>
-							<td scope="row" th:text="*{departments.dept_no}"></td>
-							<td scope="row" th:text="${departments.dept_name}"></td>
-						</tr>
-					
-					</tbody>
-				
-				</table>	
+				<button id = "addDepartment" class = "btn btn-success m-2">부서 추가</button>
+			
 			</div>
+
+			
+			<div id= "modalAdd" class = "modalAdd">
+				<div class = "modalContent">
+					<label>부서 - ID : <input type="text" id ="dept_no" required="required"></label><br>
+					<label>부서 이름 : <input type="text" id ="dept_name" required="required"></label><br>
+					
+					<button id = "submitBtn">확인</button>
+				</div>
+			</div>
+			
+			<!--  이 스코프에 작성 -->
+			
+			
 		</div>
-		</div>
-
-
-
-
-
-
-
+		
+		
+		
+		
+		<script>
+			const addBtn = document.getElementById("addDepartment");
+			const submintBtn = document.getElementById("submitBtn");
+			const modal = document.getElementById("modalAdd");
+			
+			addBtn.onclick = function() {
+				modal.style.display = "flex";
+			}
+			
+			
+			submintBtn.onclick = function (event)
+			{
+				modal.style.display = "none";
+				addDepartment(event);
+			}
+			
+			
+			
+			function addDepartment(event)
+			{
+				event.preventDefault();
+				
+				let dept_no = document.getElementById("dept_no").value;
+				let dept_name = document.getElementById("dept_name").value;
+				
+				// 원래
+				console.log("ID : ", dept_no);
+				console.log("이름 : ", dept_name);
+				
+				// 1. XMLHttpRequest 객체 생성
+				var xhr = new XMLHttpRequest();
+				
+				// 2. 이벤트 핸들러 등록
+				xhr.onreadystatechange = function ()
+				{
+					if (xhr.readyState === 4 && xhr.status === 200)
+					{
+						var department = JSON.parse(xhr.responseText);
+						
+						var departmentsTable = document.querySelector('table');
+						var row = departmentsTable.insertRow(-1);	// insertRow(0) 처음에 추가, insertRow(3) 이 위치에 추가, -1 맨 뒤에 추가
+						
+						var cellID = row.insertCell(0);
+						var cellName = row.insertCell(1);
+						
+						cellID.innerHTML = department.dept_no;
+						cellName.innerHTML = department.dept_name;
+					}
+				}
+				
+				// 3. http 요청 초기화
+				xhr.open('POST', '/ajaxInsertDepartment', true);
+				
+				// 4. http 요청 헤더 설정
+				xhr.setRequestHeader('Content-Type', 'application/json');
+				
+				// 5. http 요청 전송
+				xhr.send(JSON.stringify({dept_no:dept_no, dept_name:dept_name}));
+			}
+			
+			
+		</script>
+		
+		
 	</body>
 </html>

@@ -11,7 +11,7 @@ import lombok.Setter;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User
+public class Users
 {
 	private String user_id;
 	private String login_id;

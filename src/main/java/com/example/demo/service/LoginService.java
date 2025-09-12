@@ -2,23 +2,23 @@ package com.example.demo.service;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.dao.UserDAO;
-import com.example.demo.dto.User;
+import com.example.demo.dao.UsersDAO;
+import com.example.demo.dto.Users;
 
 @Service
 public class LoginService
 {
-	private final UserDAO userDAO;
+	private final UsersDAO usersDAO;
 	
-	public LoginService(UserDAO usersDAO)
+	public LoginService(UsersDAO usersDAO)
 	{
-		this.userDAO = usersDAO;
+		this.usersDAO = usersDAO;
 	}
 
-	public User login(String login_id, String login_password)
+	public Users login(String login_id, String login_password)
 	{
 		// TODO : 비즈니스 로직.
-		return userDAO.login(login_id, login_password);
+		return usersDAO.login(login_id, login_password);
 	}
 	
 	

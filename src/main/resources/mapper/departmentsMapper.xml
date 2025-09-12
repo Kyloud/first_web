@@ -4,10 +4,23 @@
 <!-- 이 xml 파일은 namespace에 지정한 mapper인터페에스와 연동! -->
 <mapper namespace="com.example.demo.dao.DepartmentsDAO">
 
-	<select id="getDepartmentsTable" resultType="com.example.demo.dto.Departments">
+	<select id="getAllDepartments" resultType="com.example.demo.dto.Departments">
 		SELECT *
 		FROM departments
 		ORDER BY dept_no ASC;
 	</select>
+	
+	<insert id="insertDepartment" parameterType="com.example.demo.dto.Departments">
+		REPLACE INTO departments
+		(
+		    dept_no,
+    		dept_name
+		)
+		VALUES
+		(
+			#{dept_no},
+			#{dept_name}
+		);
+	</insert>
 
 </mapper>
