@@ -79,16 +79,26 @@
 				</div>
 				
 				<button id = "addDepartment" class = "btn btn-success m-2">부서 추가</button>
-			
+				<p></p>
+
+				<div style = color:red;>
+					<h5 style = color:yellow;>
+						[부서 추가 시 중요 사항]
+					</h5>
+					기존에 있던 부서의 이름과 번호는<br>
+					중복 될 수 없습니다!!
+				</div>
+				
 			</div>
 
 			
 			<div id= "modalAdd" class = "modalAdd">
 				<div class = "modalContent">
-					<label>부서 - ID : <input type="text" id ="dept_no" required="required"></label><br>
+					<label>부서 - ID : <input type="text" id ="dept_no"   required="required"></label><br>
 					<label>부서 이름 : <input type="text" id ="dept_name" required="required"></label><br>
 					
-					<button id = "submitBtn">확인</button>
+				
+					<button id = "submitBtn" class = "btn btn-success m-2">확인</button><br>
 				</div>
 			</div>
 			
@@ -135,7 +145,6 @@
 					if (xhr.readyState === 4 && xhr.status === 200)
 					{
 						var requestResult = xhr.response;
-						console.log("영향받은 열 (업데이트 로우) : ", requestResult);
 						
 						var departmentsTable = document.querySelector('table');
 						var row = departmentsTable.insertRow(-1);	// insertRow(0) 처음에 추가, insertRow(3) 이 위치에 추가, -1 맨 뒤에 추가
@@ -149,10 +158,13 @@
 						cellNo.innerHTML = lastNo - 1;
 						cellDept_no.innerHTML = dept_no;
 						cellDept_name.innerHTML = dept_name;
+						
+						alert("삽입에 성공했습니다!\n" + requestResult + "개의 행이 업데이트 되었습니다.");
 					}
 					else if (xhr.readyState === 4 && xhr.status !== 200)
 					{
-						alert("삽입 실패!!!!!" + "\n[오류 코드] " + xhr.status);
+						console.log(dept_no);
+						alert("삽입에 실패했습니다...\n" + "[오류 코드] : " + xhr.status + "\n[오류 원인] : 사용자가 중복된 부서 번호 또는 부서이름을 입력했습니다...");
 					}
 				}
 				

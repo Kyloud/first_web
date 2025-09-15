@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--   -->
+
+<!-- 이 xml 파일은 namespace에 지정한 mapper인터페에스와 연동! -->
+<mapper namespace="com.example.demo.dao.policy.PoliciesDAO">
+	<select id = "getAllPolicy" resultType = "com.example.demo.dto.Policy">
+		SELECT * FROM policy
+	</select>
+</mapper>

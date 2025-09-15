@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.dao.DepartmentsDAO;
+import com.example.demo.dao.employees.DepartmentsDAO;
 import com.example.demo.dto.Departments;
 
 @Service

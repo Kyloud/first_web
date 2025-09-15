@@ -1,4 +1,4 @@
-package com.example.demo.dao;
+package com.example.demo.dao.employees;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
