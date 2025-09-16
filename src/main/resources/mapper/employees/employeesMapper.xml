@@ -5,13 +5,18 @@
 <!-- 이 xml 파일은 namespace에 지정한 mapper인터페에스와 연동! -->
 <mapper namespace="com.example.demo.dao.employees.EmployeesDAO">
 
-	<select id="getAllEmployees" resultType="com.example.demo.dto.Employees">
+	<select id="getEmployeesDefaultList" resultType="com.example.demo.dto.Employees">
 		SELECT *
 		FROM employees
-		limit 50;
+		limit #{limit} offset #{offset}
 	</select>
-
-
+	
+	<select id="getEmployeesRowCnt">
+		SELECT count(*)
+		FROM employees
+		WHERE emp_no like '1000%'
+	</select>
+	
 	<select id="getEmployeeById" resultType="com.example.demo.dto.Employees">
 		SELECT *
 		FROM employees

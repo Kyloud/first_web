@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,14 +39,17 @@ public class DepartmentsController
 	
 	@PostMapping("/ajaxInsertDepartment")
 	@ResponseBody
-	public int ajaxInsertDepartment
-	(		
-			@RequestBody Departments departments
-	)
+	public int ajaxInsertDepartment (@RequestBody Departments departments)
 	{
-		int result = departmentsService.insertDepartment(departments.getDept_no(), departments.getDept_name());
+		boolean result;
 		
-		return result;
+		try {
+			result = departmentsService.insertDepartment(departments.getDept_no(), departments.getDept_name());
+		} catch (DuplicateKeyException e) {
+			result = false;
+		}
+		
+		return (result) ? 1 : 0;
 	}
 	
 	

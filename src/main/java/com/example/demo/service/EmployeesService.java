@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.employees.EmployeesDAO;
@@ -17,10 +18,16 @@ public class EmployeesService
 		this.employeesDAO = employeesDAO;
 	}
 	
-	public List<Employees> getAllEmployees()
+	public List<Employees> getEmployeesDefaultList
+	(int limit, int offset)
 	{
 		// TODO : 비즈니스 로직.
-		return employeesDAO.getAllEmployees();
+		return employeesDAO.getEmployeesDefaultList(limit, offset);
+	}
+	
+	public int getEmployeesRowCnt()
+	{
+		return employeesDAO.getEmployeesRowCnt();
 	}
 	
 	public Employees getEmployeeById(String id)

@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -16,6 +17,7 @@ import com.example.demo.service.EmployeesService;
 @Controller
 public class EmployeesController
 {
+	private int pageCnt = 15;
 	private static final Logger logger = LoggerFactory.getLogger(EmployeesController.class);
 	private final EmployeesService employeesService;
 	
@@ -26,15 +28,19 @@ public class EmployeesController
 	}
 	
 	@GetMapping("employees")
-	public String getAllEmployees(Model model)
+	public String getEmployeesTablePage(Model model)
 	{
-		List<Employees> employee = employeesService.getAllEmployees();
+		int employeesCnt = employeesService.getEmployeesRowCnt();
+		model.addAttribute("cnt", employeesCnt);
 		
-		model.addAttribute("employees", employee);
+		List<Employees> employees = employeesService.getEmployeesDefaultList(pageCnt, 0);
+		
+		model.addAttribute("employees", employees);
 		logger.info("사용자가 /employees 페이지를 요청함");
 		
 		return "employees";
 	}
+	
 	
 	@GetMapping("employeeById")
 	@ResponseBody

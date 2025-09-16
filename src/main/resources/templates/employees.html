@@ -28,17 +28,13 @@
 
 	
 	<body>
-		
 		<th:block th:insert="~{fragments_sidebar::sidebar}"></th:block>
 		<div class="content">
 			<div class="bg-secondary rounded h-100 p-4">
 				<h3 class="mb-4">employees Table INFO</h3>
-				
 				<div class="bg-secondary rounded h-100 p-4">
 					<table class="table">
-					
 						<thead>
-							
 							<tr>
 								<th scope="col">#</th>
 								<th scope="col">birth_date</th>
@@ -47,12 +43,10 @@
 								<th scope="col">gender</th>
 								<th scope="col">hire_date</th>
 							</tr>
-							
 						</thead>	
 					
 						<tbody>
-						
-							<tr th:each="employee:${employees}">
+							<tr th:each="employees:${employees}">
 								<td scope="row" th:text="${employee.emp_no}"></td>
 								<td scope="row" th:text="${employee.birth_date}"></td>
 								<td scope="row" th:text="${employee.first_name}"></td>
@@ -60,19 +54,57 @@
 								<td scope="row" th:text="${employee.gender}"></td>
 								<td scope="row" th:text="${employee.hire_date}"></td>
 							</tr>
-						
 						</tbody>
-					
 					</table>	
+					
+					
+					<nav aria-label = "Page Navigation example">
+						
+						<ul class = "pagination">
+							<li class = "page-item">
+								<a class = "page-link" href="#">Previous</a>
+							<li>
+							
+							<li class = "page-item"
+							 th:each = "pageNum : {$numbers.sequence(1, cnt / 10 + ((cnt % 15 == 0) ? 0 : 1))}"
+							 th:if = "${pageNum} <= 10"
+							>
+								<a class = "page-link" href = "#" th:text = "${pageNum}"></a>
+							</li>
+							
+							<li class = "page-item">
+								<a class = "page-link" href="#">Next</a>
+							<li>
+						</ul>
+					</nav>
+				
 				</div>
 			</div>
+			
+			
+			<nav aria-label="Page navigation example">
+	            <ul class="pagination">
+	              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+	              <li class="page-item"><a class="page-link" href="#">1</a></li>
+	              <li class="page-item"><a class="page-link" href="#">2</a></li>
+	              <li class="page-item"><a class="page-link" href="#">3</a></li>
+	              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+	            </ul>
+            </nav>
+		
+			
+			
 		</div>
 
 
 
-
-
-
-
+	<script>
+	
+	
+	</script>
+		
+		
+		
+		
 	</body>
 </html>

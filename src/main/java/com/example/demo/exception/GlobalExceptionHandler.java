@@ -1,6 +1,5 @@
 package com.example.demo.exception;
 
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
@@ -12,34 +11,34 @@ import org.springframework.web.servlet.resource.NoResourceFoundException;
 public class GlobalExceptionHandler {
 
   @ExceptionHandler(NoResourceFoundException.class)
-  public String handleResourceFoundException() {
-      System.out.println("오류발생");
-      //오류 내용에 따른 적절한 처리 실행.
+  public String handleResourceFoundException(NoResourceFoundException e)
+  {
+	  if(e.getMessage().contains("com.chrome.devtools.json"))
+	  {
+		  return "404";
+	  }
+	  
+	  //오류 내용에 따른 적절한 처리 실행.
+	  System.err.println("오류발생 : " + e.getMessage());
       return "404";
   }
   
   @ExceptionHandler(SessionExpiredException.class)
   public ModelAndView handleSessionExpiredException (SessionExpiredException e) 
   {
-	  e.printStackTrace();
+	  System.err.println(e.getMessage());
+	  
 	  ModelAndView modelAndView = new ModelAndView();
 	  modelAndView.setViewName("redirect:/login.html");
 	  
 	  return modelAndView;
   }
   
-  // SQL관련 오류 처리 DuplicateKeyException의 부모 예외 클래스
-  // 이거 없으면 작동 안됨 진짜 안 됨
-  @ExceptionHandler(DataIntegrityViolationException.class)
-  public int handleException(DataIntegrityViolationException e)
-  {
-      e.printStackTrace();
-      return -1;
-  }
-  
   @ExceptionHandler(Exception.class)
   public String handleException(Exception e) {
-	  e.printStackTrace();
+	  System.err.println("예외 발생 : " + e.getClass().getName());
+	  System.err.println("원인 : " + e.getMessage());
+	  
       return "500";
   }
 

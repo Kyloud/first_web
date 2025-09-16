@@ -12,7 +12,10 @@ public interface EmployeesDAO
 {
 	// 단일 객체가 아닌 리스트로 반환하는 경우
 	// 마이 바티스가 sQl 을 매핑해서 실제 쿼리처리 할 때 selectList()를 사용
-	public List<Employees> getAllEmployees();
+	public List<Employees> getEmployeesDefaultList
+	(@Param("limit")int limit, @Param("offset")int offset);
+	
+	public int getEmployeesRowCnt();
 	
 	// 단일 객체로 반환하는 경우
 	// 마이 바티스가 SQl 을 매핑해서 실제 쿼리처리 할 때 selectOne() 을 사용

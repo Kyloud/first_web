@@ -53,7 +53,7 @@
 
 	
 	<body>
-		<th:block th:insert="~{fragments_sidebar::sidebar}"></th:block>
+		<th:block th:insert="~{fragments_sidebar::sidebar}">
 		<div class="content">
 			<div class="bg-secondary rounded h-100 p-4">
 				<h3 class="mb-4">departments Table INFO</h3>
@@ -127,7 +127,6 @@
 			}
 			
 			
-			
 			function addDepartment(event)
 			{
 				event.preventDefault();
@@ -141,13 +140,24 @@
 				// 2. 이벤트 핸들러 등록
 				xhr.onreadystatechange = function ()
 				{
-					console.log(xhr.readyState);
 					if (xhr.readyState === 4 && xhr.status === 200)
 					{
-						var requestResult = xhr.response;
+						var requestResult = Number(xhr.response);
+						
+						console.log("Ajax 통신 상태(readyState)는 1, 2, 3, 4 별로 의미가 있음 (구글링 해보셈!)")
+						console.log("현재 Ajax 통신 상태 : " + xhr.readyState);
+						console.log("백엔드 요청으로 반환된 숫자 값 : " + requestResult);
+						
+						if (!requestResult)
+						{
+							alert("삽입에 실패했습니다!\n" + "사용자가 중복된 부서번호 또는 부서 이름을 입력했습니다...");
+							return;
+						}
 						
 						var departmentsTable = document.querySelector('table');
-						var row = departmentsTable.insertRow(-1);	// insertRow(0) 처음에 추가, insertRow(3) 이 위치에 추가, -1 맨 뒤에 추가
+
+						// insertRow(0) 처음에 추가, insertRow(3) 이 위치에 추가, -1 맨 뒤에 추가
+						var row = departmentsTable.insertRow(-1);	
 						
 						const lastNo = departmentsTable.rows.length;
 						
@@ -160,11 +170,6 @@
 						cellDept_name.innerHTML = dept_name;
 						
 						alert("삽입에 성공했습니다!\n" + requestResult + "개의 행이 업데이트 되었습니다.");
-					}
-					else if (xhr.readyState === 4 && xhr.status !== 200)
-					{
-						console.log(dept_no);
-						alert("삽입에 실패했습니다...\n" + "[오류 코드] : " + xhr.status + "\n[오류 원인] : 사용자가 중복된 부서 번호 또는 부서이름을 입력했습니다...");
 					}
 				}
 				
