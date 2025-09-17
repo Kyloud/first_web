@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,19 +34,28 @@ public class ManagerAccountController
 	{
 		String requestResult = null;
 		
-		logger.info("===========ManagerAccount==============");
+		// 로그인 암호화 처리
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+	    String encodedPssword = encoder.encode(managerAccount.getLogin_password()); // 인코딩하고싶은 문자열 삽입
+
+	    System.out.println(managerAccount.getLogin_password());
+	    System.out.println("EncodedPassword: " + encodedPssword);
+        
+        managerAccount.setLogin_password(encodedPssword);
+		
+		logger.info("=========== ManagerAccount ==============");
 		logger.info(managerAccount.getManager_id());
 		logger.info(managerAccount.getManager_name());
 		logger.info(managerAccount.getLogin_id());
-		logger.info(managerAccount.getLogin_password());
-		logger.info(managerAccount.getEmail());
-		logger.info("권한 레벨" + managerAccount.getAccess_level());
-		logger.info("만료 날짜" + managerAccount.getExpire_dt());
+		logger.info("로그인 패스워드 : " + managerAccount.getLogin_password());
+		logger.info("이메일 : " + managerAccount.getEmail());
+		logger.info("권한 레벨 : " + managerAccount.getAccess_level());
+		logger.info("만료 날짜 : " + managerAccount.getExpire_dt());
 		
 		try
 		{
-			accountManagementService.addNewManager(managerAccount);
-			requestResult = "Success..!";
+			int updateRowValue = accountManagementService.addNewManager(managerAccount);
+			requestResult = "Success..!\n" + updateRowValue + "개의 행이 업데이트 되었습니다.";
 		}
 		catch (Exception e)
 		{

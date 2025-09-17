@@ -2,7 +2,7 @@
 <html xmlns:th ="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>관리자 추가</title>
+		<title>관리자 계정 관리 페이지</title>
 		
 		<!-- Icon Font Stylesheet -->
 	    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -36,7 +36,7 @@
 									 id = "manager_id"
 									 name = "manager_id"
 									 required="required"></input>
-									<label for = "manager_id">관리자 고유 ID 입력</label>
+									<label for = "manager_id">Manager ID</label>
 								</div>
 								
 								<div class = "form-floating mb-3">
@@ -45,7 +45,7 @@
 									 id = "manager_name"
 									 name = "manager_name"
 									 required="required"></input>
-									<label for = "manager_name">관리자 이름</label>
+									<label for = "manager_name">Manager Name</label>
 								</div>
 		
 								<div class = "form-floating mb-3">
@@ -54,7 +54,7 @@
 									 id = "login_id"
 									 name = "login_id"
 									 required="required"></input>
-									<label for = "login_id">로그인 ID 지정</label>
+									<label for = "login_id">Log-in ID</label>
 								</div>	
 									
 								<div class = "form-floating mb-3">
@@ -63,7 +63,7 @@
 									 id = "login_password"
 									 name = "login_password"
 									 required="required"></input>
-									<label for = "login_password">비빌번호 지정</label>
+									<label for = "login_password">Log-in Password</label>
 								</div>
 		
 								<div class = "form-floating mb-3">
@@ -72,7 +72,7 @@
 									 id = "email"
 									 name = "email"
 									 required="required"></input>
-									<label for = "email">이메일</label>
+									<label for = "email">E-mail</label>
 								</div>						
 								
 								<div class = "form-floating mb-3">
@@ -87,7 +87,7 @@
 											사원
 										</option>
 									</select>
-									<label for = "access_level">권한</label>
+									<label for = "access_level">직급</label>
 								</div>	
 								
 								<div class = "form-floating mb-3">
@@ -97,7 +97,7 @@
 									 name = "expire_dt"
 									 required="required"
 									></input>
-									<label for = "expire_dt">만료일</label>
+									<label for = "expire_dt">Expire Date</label>
 								</div>
 		
 								<div class = "form-floating mb-3">
@@ -109,7 +109,7 @@
 										<option value = "DISABLED">비활성화</option>
 										<option value = "EXPIRED">만료</option>
 									</select>
-									<label for = "account_status">계정 상태 설정</label>
+									<label for = "account_status">Account Status</label>
 								</div>							
 								
 								<button type="submit" class = "btn btn-outline-success m-2">관리자 추가</button>
