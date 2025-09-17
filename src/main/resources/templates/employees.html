@@ -46,7 +46,7 @@
 						</thead>	
 					
 						<tbody>
-							<tr th:each="employees:${employees}">
+							<tr th:each="employee:${employees}">
 								<td scope="row" th:text="${employee.emp_no}"></td>
 								<td scope="row" th:text="${employee.birth_date}"></td>
 								<td scope="row" th:text="${employee.first_name}"></td>
@@ -58,15 +58,14 @@
 					</table>	
 					
 					
-					<nav aria-label = "Page Navigation example">
-						
+					<nav aria-label = "Page Navigation example" style = "width:50%; margin:0 auto;">
 						<ul class = "pagination">
 							<li class = "page-item">
 								<a class = "page-link" href="#">Previous</a>
 							<li>
 							
 							<li class = "page-item"
-							 th:each = "pageNum : {$numbers.sequence(1, cnt / 10 + ((cnt % 15 == 0) ? 0 : 1))}"
+							 th:each = "pageNum : ${#numbers.sequence(1, cnt / 10 + ((cnt % 15 == 0) ? 0 : 1))}"
 							 th:if = "${pageNum} <= 10"
 							>
 								<a class = "page-link" href = "#" th:text = "${pageNum}"></a>
@@ -81,17 +80,6 @@
 				</div>
 			</div>
 			
-			
-			<nav aria-label="Page navigation example">
-	            <ul class="pagination">
-	              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-	              <li class="page-item"><a class="page-link" href="#">1</a></li>
-	              <li class="page-item"><a class="page-link" href="#">2</a></li>
-	              <li class="page-item"><a class="page-link" href="#">3</a></li>
-	              <li class="page-item"><a class="page-link" href="#">Next</a></li>
-	            </ul>
-            </nav>
-		
 			
 			
 		</div>

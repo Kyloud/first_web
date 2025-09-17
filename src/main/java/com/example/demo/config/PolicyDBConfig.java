@@ -20,7 +20,7 @@ public class PolicyDBConfig
 	
 	// DataSource 객체 생성
 	@Bean(name = "policyDataSource")
-	@ConfigurationProperties(prefix = "spring.datasource.policy")
+	@ConfigurationProperties(prefix = "spring.datasource.policy-db")
 	DataSource policyDataSource()
 	{
 		return DataSourceBuilder.create().build();
@@ -40,7 +40,6 @@ public class PolicyDBConfig
 		
 		return sqlSessionFactoryBean.getObject();
 	}
-	
 	
 	// 트랙잭션 메니저
 	@Bean(name = "policyTransactionManager")

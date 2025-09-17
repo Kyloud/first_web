@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--   -->
+
+<!-- 이 xml 파일은 namespace에 지정한 mapper인터페에스와 연동! -->
+<mapper namespace="com.example.demo.dao.account.ManagerAccountDAO">
+	<insert id = "addNewManager" parameterType = "com.example.demo.dto.ManagerAccount">
+		INSERT INTO manager_account
+		(
+			 manager_id	
+			,manager_name	
+			,login_id	
+			,login_password 	
+			,email	
+			,access_level	
+			,create_dt
+			,expire_dt	
+			,account_status
+			,delete_at	
+		)
+		VALUES
+		(
+			 #{newManagerInfo.manager_id}
+			,#{newManagerInfo.manager_name}
+			,#{newManagerInfo.login_id}
+			,#{newManagerInfo.login_password}
+			,#{newManagerInfo.email}
+			,#{newManagerInfo.access_level}
+			,NOW()
+			,#{newManagerInfo.expire_dt}
+			,#{newManagerInfo.account_status}
+			,NULL
+		)
+	</insert>
+</mapper>

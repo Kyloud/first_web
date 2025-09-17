@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,17 +24,25 @@ public class LoginController {
 	}
 
 	@PostMapping("login")
-	public String login(@ModelAttribute Users users
-	// @RequestParam("login_id") String login_id
-	// , @RequestParam("login_password") String login_password
-			, Model model, HttpSession session) {
+	public String login
+	(@ModelAttribute Users users
+	//    @RequestParam("login_id") String login_id
+	// 	, @RequestParam("login_password") String login_password
+		, Model model, HttpSession session
+	)
+	{
 		logger.info("사용자가 로그인을 시도했습니다!");
 		logger.info("로그인을 요청한 세션 ID : [" + session.getId() + "]");
 		logger.debug("MAX inactive : " + session.getMaxInactiveInterval());
 		logger.info("입력한 ID : " + users.getLogin_id());
 		logger.info("입력한 PASSWORD : " + users.getLogin_password());
 
-		Users login_user = (Users) session.getAttribute("user");
+		
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		String encodeedPassword = encoder.encode(users.getLogin_password());
+		logger.info("EncodedPassword : " + encodeedPassword);
+		
+		Users login_user = (Users)session.getAttribute("user");
 
 		if (login_user == null) {
 			login_user = loginService.login(users.getLogin_id(), users.getLogin_password());
@@ -60,5 +69,5 @@ public class LoginController {
 		session.removeAttribute("user");
 		return "redirect:/login.html";
 	}
-
+	
 }

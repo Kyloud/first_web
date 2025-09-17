@@ -4,21 +4,21 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.dao.policy.PoliciesDAO;
+import com.example.demo.dao.policy.PresentPolicy;
 import com.example.demo.dto.Policy;
 
 @Service
 public class PoliciesService 
 {
-	private final PoliciesDAO policiesDAO;
+	private final PresentPolicy presentPolicy;
 	
-	public PoliciesService(PoliciesDAO policiesDAO)
+	public PoliciesService(PresentPolicy presentPolicy)
 	{
-		this.policiesDAO = policiesDAO;
+		this.presentPolicy = presentPolicy;
 	}
 
 	public List<Policy> getAllPolicy()
 	{
-		return policiesDAO.getAllPolicy();
+		return presentPolicy.getAllPolicy();
 	}
 }

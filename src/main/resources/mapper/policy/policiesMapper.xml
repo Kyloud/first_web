@@ -3,7 +3,7 @@
 <!--   -->
 
 <!-- 이 xml 파일은 namespace에 지정한 mapper인터페에스와 연동! -->
-<mapper namespace="com.example.demo.dao.policy.PoliciesDAO">
+<mapper namespace="com.example.demo.dao.policy.PresentPolicy">
 	<select id = "getAllPolicy" resultType = "com.example.demo.dto.Policy">
 		SELECT * FROM policy
 	</select>

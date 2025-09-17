@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th ="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>관리자 추가</title>
+		
+		<!-- Icon Font Stylesheet -->
+	    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+	    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+	
+	    <!-- Libraries Stylesheet -->
+	    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+	    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+	
+	    <!-- Customized Bootstrap Stylesheet -->
+	    <link href="css/bootstrap.min.css" rel="stylesheet">
+	
+	    <!-- Template Stylesheet -->
+	    <link href="css/style.css" rel="stylesheet">
+		
+	</head>
+	
+	<body>
+		<th:block th:insert="~{fragments_sidebar::sidebar}"></th:block>
+		<div class = "container-fluid">
+			<div class = "content">
+				<div class = "row h-100 aligin-items-center justify-content-center" style = "min-height: 100vh;">
+					<div class = "col-12 col-sm8 col-md-6 col-lg-5 col-xl-4">
+						<div class = "bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
+						
+							<form action = "/addNewManager" method="post">
+							<!-- 텍박 -->
+								<div class = "form-floating mb-3">
+									<input class = "form-control"
+									 type = "text"
+									 id = "manager_id"
+									 name = "manager_id"
+									 required="required"></input>
+									<label for = "manager_id">관리자 고유 ID 입력</label>
+								</div>
+								
+								<div class = "form-floating mb-3">
+									<input class = "form-control"
+									 type = "text"
+									 id = "manager_name"
+									 name = "manager_name"
+									 required="required"></input>
+									<label for = "manager_name">관리자 이름</label>
+								</div>
+		
+								<div class = "form-floating mb-3">
+									<input class = "form-control"
+									 type = "text"
+									 id = "login_id"
+									 name = "login_id"
+									 required="required"></input>
+									<label for = "login_id">로그인 ID 지정</label>
+								</div>	
+									
+								<div class = "form-floating mb-3">
+									<input class = "form-control"
+									 type = "password"
+									 id = "login_password"
+									 name = "login_password"
+									 required="required"></input>
+									<label for = "login_password">비빌번호 지정</label>
+								</div>
+		
+								<div class = "form-floating mb-3">
+									<input class = "form-control"
+									 type = "email"
+									 id = "email"
+									 name = "email"
+									 required="required"></input>
+									<label for = "email">이메일</label>
+								</div>						
+								
+								<div class = "form-floating mb-3">
+									<select class ="form-select"
+									 id = "access_level"
+									 name = "access_level"
+									 required="required">
+										<option value = "ADMIN">
+											관리자
+										</option>
+										<option value = "USER">
+											사원
+										</option>
+									</select>
+									<label for = "access_level">권한</label>
+								</div>	
+								
+								<div class = "form-floating mb-3">
+									<input class = "form-control"
+									 type = "datetime-local"
+									 id = "expire_dt"
+									 name = "expire_dt"
+									 required="required"
+									></input>
+									<label for = "expire_dt">만료일</label>
+								</div>
+		
+								<div class = "form-floating mb-3">
+									<select class ="form-select"
+									 id = "account_status"
+									 name = "account_status"
+									 required="required">
+										<option value = "ENABLED">활성화</option>
+										<option value = "DISABLED">비활성화</option>
+										<option value = "EXPIRED">만료</option>
+									</select>
+									<label for = "account_status">계정 상태 설정</label>
+								</div>							
+								
+								<button type="submit" class = "btn btn-outline-success m-2">관리자 추가</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+				
+
+	
+	</body>
+
+</html>

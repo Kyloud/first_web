@@ -20,7 +20,7 @@
 		(
 			#{dept_no},
 			#{dept_name}
-		);
+		)
 	</insert>
 
 </mapper>

@@ -26,6 +26,7 @@ public class SampleAspect {
 	@Before(
 				"execution(* com.example.demo.controller.*.*(..))"
 				+ "&& !execution(* com.example.demo.controller.LoginController.login(..))"
+				+ "&& !execution(* com.example.demo.controller.ManagerAccountController.*(..))"
 			)
 	public void beforeAdvice(JoinPoint joinPoint)
 	{

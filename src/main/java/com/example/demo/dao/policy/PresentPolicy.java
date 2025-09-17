@@ -7,6 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
 import com.example.demo.dto.Policy;
 
 @Mapper
-public interface PoliciesDAO {
+public interface PresentPolicy {
 	public List<Policy> getAllPolicy();
 }
