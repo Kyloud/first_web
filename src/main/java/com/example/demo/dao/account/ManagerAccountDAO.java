@@ -10,4 +10,7 @@ public interface ManagerAccountDAO
 {
 	public int addNewManager
 	(@Param("newManagerInfo")ManagerAccount managerAccount);
+	
+	public ManagerAccount login
+	(String login_id);
 }

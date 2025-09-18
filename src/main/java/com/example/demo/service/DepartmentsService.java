@@ -23,9 +23,8 @@ public class DepartmentsService
 		return departmentsDAO.getAllDepartments();
 	}
 	
-	
 	// @Transactional은 작업이 성공적으로 완료되면 커밋함, 망하(예외)면 롤백 함
-	@Transactional(transactionManager = "employeesTransactionManager")
+	@Transactional(transactionManager = "employeesDBTransactionManager")
 	public boolean insertDepartment(String dept_no, String dept_name)
 	{
 		// 예를 들어...

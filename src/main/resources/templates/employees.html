@@ -2,7 +2,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 	<head>
-	
 		<meta charset="UTF-8">
 		<title>Employees Table</title>
 		
@@ -20,13 +19,8 @@
 	
 	    <!-- Template Stylesheet -->
 	    <link href="css/style.css" rel="stylesheet">
-		
-		
-
 	</head>
 
-
-	
 	<body>
 		<th:block th:insert="~{fragments_sidebar::sidebar}"></th:block>
 		<div class="content">
@@ -36,7 +30,7 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th scope="col">#</th>
+								<th scope="col">emp_no</th>
 								<th scope="col">birth_date</th>
 								<th scope="col">first_name</th>
 								<th scope="col">last_name</th>
@@ -56,43 +50,26 @@
 							</tr>
 						</tbody>
 					</table>	
-					
-					
-					<nav aria-label = "Page Navigation example" style = "width:50%; margin:0 auto;">
-						<ul class = "pagination">
-							<li class = "page-item">
-								<a class = "page-link" href="#">Previous</a>
-							<li>
-							
-							<li class = "page-item"
-							 th:each = "pageNum : ${#numbers.sequence(1, cnt / 10 + ((cnt % 15 == 0) ? 0 : 1))}"
-							 th:if = "${pageNum} <= 10"
-							>
-								<a class = "page-link" href = "#" th:text = "${pageNum}"></a>
-							</li>
-							
-							<li class = "page-item">
-								<a class = "page-link" href="#">Next</a>
-							<li>
-						</ul>
-					</nav>
-				
 				</div>
+				<nav aria-label = "Page Navigation example" style = "width:50%; margin:0 auto;">
+					<ul class = "pagination">
+						<li class = "page-item">
+							<a class = "page-link" href="#">Previous</a>
+						<li>
+						
+						<li class = "page-item"
+						 th:each = "pageNum : ${#numbers.sequence(1, cnt / 10 + ((cnt % 15 == 0) ? 0 : 1))}"
+						 th:if = "${pageNum} <= 10"
+						>
+							<a class = "page-link" href = "#" th:text = "${pageNum}"></a>
+						</li>
+						
+						<li class = "page-item">
+							<a class = "page-link" href="#">Next</a>
+						<li>
+					</ul>
+				</nav>
 			</div>
-			
-			
-			
 		</div>
-
-
-
-	<script>
-	
-	
-	</script>
-		
-		
-		
-		
 	</body>
 </html>

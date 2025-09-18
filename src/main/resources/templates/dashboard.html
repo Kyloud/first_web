@@ -15,23 +15,18 @@
 		<!-- <div th:if="${result==1}">true</div> -->
 		
 		<!-- 타임리프가 객체를 사용하는 두번쨰 방법 -->
-		<div th:unless="${user == null}">
-			<th:block th:object = "${user}">
-				user_id : <span th:text="*{user_id}"></span><br>
-				login_id : <span th:text="*{login_id}"></span><br>
-				login_password : <span th:text="*{login_password}"></span><br>
-				user_name : <span th:text="*{user_name}"></span><br>
-				phone_number : <span th:text="*{phone_number}"></span><br>
-				address : <span th:text="*{address}"></span><br>
+		<div th:unless="${account == null}">
+			<th:block th:object = "${account}">
+				manager_id : 		<span th:text="*{manager_id}"></span><br>
+				login_id : 			<span th:text="*{login_id}"></span><br>
+				login_password : 	<span th:text="*{login_password}"></span><br>
+				manager_name :		<span th:text="*{manager_name}"></span><br>
+				email : 			<span th:text="*{email}"></span><br>
+				expire_date : 		<span th:text="*{expire_dt}"></span><br>
 			</th:block>			
 		</div>
 		
 		<p></p>
-		
-			<div th:if="${user == null}">
-				로그인 실패!!!!!!!!!!!!
-			</div>
-			
 			
 			<div>
 				<form action="/logout" method="get">

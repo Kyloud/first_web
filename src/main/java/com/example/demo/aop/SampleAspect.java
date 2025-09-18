@@ -30,7 +30,7 @@ public class SampleAspect {
 			)
 	public void beforeAdvice(JoinPoint joinPoint)
 	{
-		if (session.getAttribute("user") == null)
+		if (session.getAttribute("account") == null)
 		{
 			System.err.println("로그인 하지 않은 유저의 부정 접속");
 			throw new SessionExpiredException("session expired : " + session.getId());

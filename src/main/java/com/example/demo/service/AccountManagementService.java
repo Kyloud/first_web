@@ -16,7 +16,7 @@ public class AccountManagementService
 		this.managerAccountDAO = managerAccountDAO;
 	}
 	
-	@Transactional(transactionManager = "accountTransactionManager")
+	@Transactional(transactionManager = "accountDBTransactionManager")
 	public int addNewManager(ManagerAccount managerAccount)
 	{
 		return managerAccountDAO.addNewManager(managerAccount);

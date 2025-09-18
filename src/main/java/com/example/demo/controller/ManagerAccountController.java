@@ -14,7 +14,7 @@ import com.example.demo.service.AccountManagementService;
 @Controller
 public class ManagerAccountController
 {
-	private AccountManagementService accountManagementService;
+	private final AccountManagementService accountManagementService;
 	private static final Logger logger = LoggerFactory.getLogger(ManagerAccountController.class);
 
 	ManagerAccountController(AccountManagementService accountManagementService)
@@ -51,6 +51,18 @@ public class ManagerAccountController
 		logger.info("이메일 : " + managerAccount.getEmail());
 		logger.info("권한 레벨 : " + managerAccount.getAccess_level());
 		logger.info("만료 날짜 : " + managerAccount.getExpire_dt());
+		
+		
+		System.out.println("=========== ManagerAccount ==============");          
+		System.out.println(managerAccount.getManager_id());
+		System.out.println(managerAccount.getManager_name());
+		System.out.println(managerAccount.getLogin_id());
+		System.out.println("로그인 패스워드 : " + managerAccount.getLogin_password());
+		System.out.println("이메일 : " + managerAccount.getEmail());       
+		System.out.println("권한 레벨 : " + managerAccount.getAccess_level());
+		System.out.println("만료 날짜 : " + managerAccount.getExpire_dt());
+		
+		
 		
 		try
 		{

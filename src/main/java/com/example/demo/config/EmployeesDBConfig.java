@@ -15,12 +15,12 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 @Configuration
-@MapperScan(basePackages = "com.example.demo.dao.employees", sqlSessionFactoryRef="employeesSessionFactory")
+@MapperScan(basePackages = "com.example.demo.dao.employees", sqlSessionFactoryRef="employeesDBSessionFactory")
 public class EmployeesDBConfig
 {
 	// DataSource 객체 생성
 	@Primary
-	@Bean(name = "employeesDataSource")
+	@Bean(name = "employeesDBDataSource")
 	@ConfigurationProperties(prefix = "spring.datasource.employees-db")
 	DataSource employeesDataSource()
 	{
@@ -30,9 +30,9 @@ public class EmployeesDBConfig
 	
 	// SqlSessionFactory
 	@Primary
-	@Bean(name = "employeesSessionFactory")
+	@Bean(name = "employeesDBSessionFactory")
 	SqlSessionFactory employeesSessionFactory
-	(@Qualifier("employeesDataSource") DataSource dataSource)
+	(@Qualifier("employeesDBDataSource") DataSource dataSource)
 	throws Exception
 	{
 		SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
@@ -47,9 +47,9 @@ public class EmployeesDBConfig
 	
 	// 트랙잭션 메니저
 	@Primary
-	@Bean(name = "employeesTransactionManager")
+	@Bean(name = "employeesDBTransactionManager")
 	DataSourceTransactionManager employeesTransactionManager
-	(@Qualifier("employeesDataSource") DataSource dataSource)
+	(@Qualifier("employeesDBDataSource") DataSource dataSource)
 	throws Exception
 	{
 		return new DataSourceTransactionManager(dataSource);

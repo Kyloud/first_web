@@ -32,4 +32,11 @@
 			,NULL
 		)
 	</insert>
+	
+	<select id = "login">
+		SELECT *
+		FROM manager_account
+		WHERE login_id = #{login_id}
+	</select>
+	
 </mapper>

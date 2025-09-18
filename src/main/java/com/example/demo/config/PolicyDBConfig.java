@@ -14,12 +14,12 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 @Configuration
-@MapperScan(basePackages = "com.example.demo.dao.policy", sqlSessionFactoryRef="policySessionFactory")
+@MapperScan(basePackages = "com.example.demo.dao.policy", sqlSessionFactoryRef="policyDBSessionFactory")
 public class PolicyDBConfig
 {
 	
 	// DataSource 객체 생성
-	@Bean(name = "policyDataSource")
+	@Bean(name = "policyDBDataSource")
 	@ConfigurationProperties(prefix = "spring.datasource.policy-db")
 	DataSource policyDataSource()
 	{
@@ -27,9 +27,9 @@ public class PolicyDBConfig
 	}
 	
 	// SqlSessionFactory
-	@Bean(name = "policySessionFactory")
+	@Bean(name = "policyDBSessionFactory")
 	SqlSessionFactory policySessionFactory
-	(@Qualifier("policyDataSource") DataSource dataSource)
+	(@Qualifier("policyDBDataSource") DataSource dataSource)
 	throws Exception
 	{
 		SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
@@ -42,9 +42,9 @@ public class PolicyDBConfig
 	}
 	
 	// 트랙잭션 메니저
-	@Bean(name = "policyTransactionManager")
+	@Bean(name = "policyDBTransactionManager")
 	DataSourceTransactionManager policyTransactionManager
-	(@Qualifier("policyDataSource") DataSource dataSource)
+	(@Qualifier("policyDBDataSource") DataSource dataSource)
 	throws Exception
 	{
 		return new DataSourceTransactionManager(dataSource);
