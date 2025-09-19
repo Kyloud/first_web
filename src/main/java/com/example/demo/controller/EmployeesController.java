@@ -16,7 +16,7 @@ import com.example.demo.service.EmployeesService;
 @Controller
 public class EmployeesController
 {
-	private int pageCnt = 15;
+	private int pageViewLimit = 15;
 	private static final Logger logger = LoggerFactory.getLogger(EmployeesController.class);
 	private final EmployeesService employeesService;
 	
@@ -27,12 +27,12 @@ public class EmployeesController
 	}
 	
 	@GetMapping("employees")
-	public String getEmployeesTablePage(Model model)
+	public String getEmployeesTablePage(Model model, int name)
 	{
 		int employeesCnt = employeesService.getEmployeesRowCnt();
 		model.addAttribute("cnt", employeesCnt);
 		
-		List<Employees> employees = employeesService.getEmployeesDefaultList(pageCnt, 0);
+		List<Employees> employees = employeesService.getEmployeesDefaultList(pageViewLimit, name);
 		
 		model.addAttribute("employees", employees);
 		logger.info("사용자가 /employees 페이지를 요청함");

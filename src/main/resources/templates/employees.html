@@ -61,7 +61,7 @@
 						 th:each = "pageNum : ${#numbers.sequence(1, cnt / 10 + ((cnt % 15 == 0) ? 0 : 1))}"
 						 th:if = "${pageNum} <= 10"
 						>
-							<a class = "page-link" href = "#" th:text = "${pageNum}"></a>
+							<a class = "page-link" href = "#" th:text = "${pageNum}" th:onclick = "updatePagination([[${pageNum}]])"></a>
 						</li>
 						
 						<li class = "page-item">
@@ -71,5 +71,50 @@
 				</nav>
 			</div>
 		</div>
+		
+		
+		<!--  제이 쿼리를 쓰다 -->
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+		</script>
+		
+		
+		<script>
+		
+			function updatePagination(number)
+			{
+				$.ajax
+				({
+					  type : 'GET'
+					, url : '/employees'
+					, contentType : 'application/json'
+					, data : number
+					, success : function (employees)
+					{
+						console.log(employees)
+						if (employees)
+						{
+							var table = $('table');
+							
+							$.each(employees, function (index, employee){
+								var row = $('<tr>');
+								var emp_no = $('<td>').		text(employee[index].emp_no);
+								var birth_date = $('<td>').	text(employee[index].birth_date);
+								var first_name = $('<td>'). text(employee[index].first_name);
+								var last_name = $('<td>').  text(employee[index].last_name);
+								var gender = $('<td>').     text(employee[index].gender);
+								var hire_date = $('<td>').  text(employee[index].hire_date);
+								
+								row.append(emp_no, birth_date, first_name, last_name, gender, hire_date);
+								table.append(row);
+							})
+						}
+						else alert("망함");
+					}
+					, error : function () { alert("알수 없는 망함"); }
+				})
+			}
+		</script>
+		
+		
 	</body>
 </html>

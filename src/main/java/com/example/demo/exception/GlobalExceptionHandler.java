@@ -39,6 +39,13 @@ public class GlobalExceptionHandler {
 	  System.err.println("예외 발생 : " + e.getClass().getName());
 	  System.err.println("원인 : " + e.getMessage());
 	  
+	  // 첫 번째 스택 요소 (예외가 처음 발생한 곳)
+	  StackTraceElement element = e.getStackTrace()[0];
+	  System.err.println("파일 : " + element.getFileName());
+	  System.err.println("메서드 : " + element.getMethodName());
+	  System.err.println("줄번호 : " + element.getLineNumber());
+	  
+//	  e.printStackTrace();	  
       return "500";
   }
 
