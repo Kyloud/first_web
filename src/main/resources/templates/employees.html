@@ -80,29 +80,30 @@
 		
 		<script>
 		
-			function updatePagination(number)
+			function updatePagination(pageNumber)
 			{
 				$.ajax
 				({
 					  type : 'GET'
-					, url : '/employees'
+					, url : '/employees/pageData'
 					, contentType : 'application/json'
-					, data : number
+					, data : { pageNumber : pageNumber }
 					, success : function (employees)
 					{
 						console.log(employees)
 						if (employees)
 						{
 							var table = $('table');
+							table.empty();
 							
 							$.each(employees, function (index, employee){
 								var row = $('<tr>');
-								var emp_no = $('<td>').		text(employee[index].emp_no);
-								var birth_date = $('<td>').	text(employee[index].birth_date);
-								var first_name = $('<td>'). text(employee[index].first_name);
-								var last_name = $('<td>').  text(employee[index].last_name);
-								var gender = $('<td>').     text(employee[index].gender);
-								var hire_date = $('<td>').  text(employee[index].hire_date);
+								var emp_no = $('<td>').		text(employee.emp_no);
+								var birth_date = $('<td>').	text(employee.birth_date);
+								var first_name = $('<td>'). text(employee.first_name);
+								var last_name = $('<td>').  text(employee.last_name);
+								var gender = $('<td>').     text(employee.gender);
+								var hire_date = $('<td>').  text(employee.hire_date);
 								
 								row.append(emp_no, birth_date, first_name, last_name, gender, hire_date);
 								table.append(row);

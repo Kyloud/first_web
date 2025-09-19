@@ -27,17 +27,25 @@ public class EmployeesController
 	}
 	
 	@GetMapping("employees")
-	public String getEmployeesTablePage(Model model, int name)
+	public String getEmployeesTablePage(Model model)
 	{
 		int employeesCnt = employeesService.getEmployeesRowCnt();
 		model.addAttribute("cnt", employeesCnt);
 		
-		List<Employees> employees = employeesService.getEmployeesDefaultList(pageViewLimit, name);
+		List<Employees> employees = employeesService.getEmployeesDefaultList(pageViewLimit, 0);
 		
 		model.addAttribute("employees", employees);
 		logger.info("사용자가 /employees 페이지를 요청함");
 		
 		return "employees";
+	}
+	
+	@GetMapping("/employees/pageData")
+	@ResponseBody
+	public List<Employees> getEmployeesPageData(
+       @RequestParam(name="pageNumber") int pageNumber) {
+
+	    return employeesService.getEmployeesDefaultList(pageViewLimit, pageNumber);
 	}
 	
 	
