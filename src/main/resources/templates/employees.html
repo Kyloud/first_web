@@ -54,7 +54,9 @@
 				<nav aria-label = "Page Navigation example" style = "width:50%; margin:0 auto;">
 					<ul class = "pagination">
 						<li class = "page-item">
-							<a class = "page-link" href="#">Previous</a>
+							<a class = "page-link" href="#">
+								Previous
+							</a>
 						<li>
 						
 						<li class = "page-item"
@@ -65,7 +67,9 @@
 						</li>
 						
 						<li class = "page-item">
-							<a class = "page-link" href="#">Next</a>
+							<a class = "page-link" href="#">
+								Next
+							</a>
 						<li>
 					</ul>
 				</nav>
@@ -79,9 +83,10 @@
 		
 		
 		<script>
-		
 			function updatePagination(pageNumber)
 			{
+				console.log(`클릭한 페이지 넘버 : ${pageNumber}`);
+				
 				$.ajax
 				({
 					  type : 'GET'
@@ -90,23 +95,24 @@
 					, data : { pageNumber : pageNumber }
 					, success : function (employees)
 					{
+						console.log("가져온 데이터는 아래와 같음");
 						console.log(employees)
 						if (employees)
 						{
-							var table = $('table');
-							table.empty();
+							var tbody = $('tbody');
+							tbody.empty();
 							
 							$.each(employees, function (index, employee){
 								var row = $('<tr>');
-								var emp_no = $('<td>').		text(employee.emp_no);
-								var birth_date = $('<td>').	text(employee.birth_date);
-								var first_name = $('<td>'). text(employee.first_name);
-								var last_name = $('<td>').  text(employee.last_name);
-								var gender = $('<td>').     text(employee.gender);
-								var hire_date = $('<td>').  text(employee.hire_date);
+								var emp_no = $('<td scope="row">').		text(employee.emp_no);
+								var birth_date = $('<td scope="row">').	text(employee.birth_date);
+								var first_name = $('<td scope="row">'). text(employee.first_name);
+								var last_name = $('<td scope="row">').  text(employee.last_name);
+								var gender = $('<td scope="row">').     text(employee.gender);
+								var hire_date = $('<td scope="row">').  text(employee.hire_date);
 								
 								row.append(emp_no, birth_date, first_name, last_name, gender, hire_date);
-								table.append(row);
+								tbody.append(row);
 							})
 						}
 						else alert("망함");

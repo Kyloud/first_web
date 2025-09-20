@@ -32,20 +32,29 @@ public class EmployeesController
 		int employeesCnt = employeesService.getEmployeesRowCnt();
 		model.addAttribute("cnt", employeesCnt);
 		
-		List<Employees> employees = employeesService.getEmployeesDefaultList(pageViewLimit, 0);
+		List<Employees> employees = employeesService.getEmployeesPageList(pageViewLimit, 0);
 		
 		model.addAttribute("employees", employees);
 		logger.info("사용자가 /employees 페이지를 요청함");
+		
+		model.addAttribute("currentPageNumber", 1);
 		
 		return "employees";
 	}
 	
 	@GetMapping("/employees/pageData")
 	@ResponseBody
-	public List<Employees> getEmployeesPageData(
-       @RequestParam(name="pageNumber") int pageNumber) {
-
-	    return employeesService.getEmployeesDefaultList(pageViewLimit, pageNumber);
+	public List<Employees> getEmployeesPageData
+	(@RequestParam("pageNumber") int pageNumber, Model model)
+	{
+		if (pageNumber == 1)
+		{
+			return employeesService.getEmployeesPageList(pageViewLimit, 0);
+		}
+		
+		model.addAttribute("currentPageNumber", (pageNumber - 1) * pageViewLimit);
+		
+		return employeesService.getEmployeesPageList(pageViewLimit, (pageNumber - 1) * pageViewLimit);
 	}
 	
 	

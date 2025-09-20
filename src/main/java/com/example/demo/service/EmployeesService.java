@@ -17,11 +17,11 @@ public class EmployeesService
 		this.employeesDAO = employeesDAO;
 	}
 	
-	public List<Employees> getEmployeesDefaultList
+	public List<Employees> getEmployeesPageList
 	(int limit, int offset)
 	{
 		// TODO : 비즈니스 로직.
-		return employeesDAO.getEmployeesDefaultList(limit, offset);
+		return employeesDAO.getEmployeesPageList(limit, offset);
 	}
 	
 	public int getEmployeesRowCnt()

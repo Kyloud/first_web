@@ -5,7 +5,7 @@
 <!-- 이 xml 파일은 namespace에 지정한 mapper인터페에스와 연동! -->
 <mapper namespace="com.example.demo.dao.employees.EmployeesDAO">
 
-	<select id="getEmployeesDefaultList" resultType="com.example.demo.dto.Employees">
+	<select id="getEmployeesPageList" resultType="com.example.demo.dto.Employees">
 		SELECT *
 		FROM employees
 		limit #{limit} offset #{offset}
