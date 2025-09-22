@@ -1,5 +1,9 @@
 package com.example.demo.service;
 
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -25,7 +29,7 @@ public class DepartmentsService
 	
 	// @Transactional은 작업이 성공적으로 완료되면 커밋함, 망하(예외)면 롤백 함
 	@Transactional(transactionManager = "employeesDBTransactionManager")
-	public boolean insertDepartment(String dept_no, String dept_name)
+	public int insertDepartment(String dept_no, String dept_name)
 	{
 		// 예를 들어...
 		// 1. 내통장에서 송금할 금액 차감
@@ -37,7 +41,36 @@ public class DepartmentsService
 		// 해당 조건을 분기문을 나누어 예외를 발생시켠 됨
 		// ex) throws Exception
 		
-		return departmentsDAO.insertDepartment(dept_no, dept_name);
+		int result = departmentsDAO.insertDepartment(dept_no, dept_name);
+		
+		if(result > 0);
+		{
+			try { udpSocketTest(); }
+			catch (IOException e)
+			{
+				e.printStackTrace();
+				result = -1;
+			}
+		}
+		
+		return result;
+	}
+	
+	
+	public boolean udpSocketTest() throws IOException
+	{
+		DatagramSocket clientSocket = new DatagramSocket();
+		InetAddress address = InetAddress.getByName("192.168.1.39");
+		
+		byte[] buffer = "Department added".getBytes();
+		
+		DatagramPacket packet = new DatagramPacket(buffer, buffer.length, address, 5050);
+
+		clientSocket.send(packet);
+		
+		clientSocket.close();
+		
+		return false;
 	}
 	
 }

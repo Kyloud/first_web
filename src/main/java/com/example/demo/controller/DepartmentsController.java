@@ -41,16 +41,11 @@ public class DepartmentsController
 	@ResponseBody
 	public int ajaxInsertDepartment (@RequestBody Departments departments)
 	{
-		boolean result;
+		int result;
 		
-		try {
-			result = departmentsService.insertDepartment(departments.getDept_no(), departments.getDept_name());
-		} catch (DuplicateKeyException e) {
-			result = false;
-		}
+		try { result = departmentsService.insertDepartment(departments.getDept_no(), departments.getDept_name()); }
+		catch (DuplicateKeyException e) { result = 0; }
 		
-		return (result) ? 1 : 0;
+		return result;
 	}
-	
-	
 }

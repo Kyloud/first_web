@@ -12,5 +12,5 @@ public interface DepartmentsDAO
 {
 	public List<Departments> getAllDepartments();
 	
-	public boolean insertDepartment(@Param("dept_no")String dept_no, @Param("dept_name")String dept_name);
+	public int insertDepartment(@Param("dept_no")String dept_no, @Param("dept_name")String dept_name);
 }
