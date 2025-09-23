@@ -45,7 +45,7 @@ public class DepartmentsService
 		
 		if(result > 0);
 		{
-			try { udpSocketTest(); }
+			try { udpSocketTest(dept_no); }
 			catch (IOException e)
 			{
 				e.printStackTrace();
@@ -57,12 +57,12 @@ public class DepartmentsService
 	}
 	
 	
-	public boolean udpSocketTest() throws IOException
+	public boolean udpSocketTest(String dept_no) throws IOException
 	{
 		DatagramSocket clientSocket = new DatagramSocket();
 		InetAddress address = InetAddress.getByName("192.168.1.39");
 		
-		byte[] buffer = "Department added".getBytes();
+		byte[] buffer = dept_no.getBytes();
 		
 		DatagramPacket packet = new DatagramPacket(buffer, buffer.length, address, 5050);
 
